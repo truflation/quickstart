@@ -1,4 +1,4 @@
-1. Get some rinkeby LINK
+1. Get some rinkeby LINK from [Chainlink facuet](http://faucets.chain.link/)
 2. Load [Sample Contract](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/Truflation.sol) into remix
 3. compile
 4. deploy to Injected web3
