@@ -13,7 +13,6 @@ contract NftIndexTester is ChainlinkClient, ConfirmedOwner {
     bytes32 public jobId;
     uint256 public fee;
 
-
     constructor() ConfirmedOwner(msg.sender) {
         setPublicChainlinkToken();
         setPublicChainlinkToken();
@@ -33,10 +32,9 @@ contract NftIndexTester is ChainlinkClient, ConfirmedOwner {
         // indexValue: 72d3a64f5d32496695437f66a2a47392
         // aDayChange: da8ace1c545f4dc58096b08c7ea48114
         // aMonthChange: 8d1071dec39a4a7ba940996983b07b34
-        jobId = "da8ace1c545f4dc58096b08c7ea48114";
+        jobId = "72d3a64f5d32496695437f66a2a47392";
         fee = 1 * 10 ** 16;
   }
-
 
     function requestData(string memory _data) public returns (bytes32 requestId) {
         Chainlink.Request memory request = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
