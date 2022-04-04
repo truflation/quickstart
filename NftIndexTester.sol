@@ -7,46 +7,61 @@ import "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol";
 contract NftIndexTester is ChainlinkClient, ConfirmedOwner {
     using Chainlink for Chainlink.Request;
 
-    uint256 public data;
-    using Chainlink for Chainlink.Request;
+    struct NftData {
+        string indexName;
+        int256 indexValue;
+        int256 aDayChange;
+        int256 aMonthChange;
+    }
+
+    NftData public nftData;
+    string public indexName;
+    int256 public indexValue;
+    int256 public aDayChange;
+    int256 public aMonthChange;
     address public oracle;
     bytes32 public jobId;
     uint256 public fee;
+
 
     constructor() ConfirmedOwner(msg.sender) {
         setPublicChainlinkToken();
         setPublicChainlinkToken();
 
-	      //mainnet
-        // oracle = 0x17dED59fCd940F0a40462D52AAcD11493C6D8073;
-        // jobids
-        // indexName: cd7bea47b73a4d47a5cedecf00b9b561
-        // indexValue: d06b539cdbeb450aa72f2e70223078af
-        // aDayChange: 3d2a6108056644c38f98d755536eb5ac
-        // aMonthChange: b871377caf1f4ccb851189f8d906c277
+	    //mainnet (trustednode)
+        // oracle = 0xB75e9a5d8ed256De9b5834C32fc54D4b4d095F57;
+	    // jobId = "a492998425084c46bb5009b77cf06cb7";
 
-        //rinkeby
-	      oracle = 0x142b60da0bfA583Dc2877e2aC12B7f511b8bD2db;
-        // jobids
-        // indexName: 172dd45ffdd841318c8a7bd1ed796941
-        // indexValue: 72d3a64f5d32496695437f66a2a47392
-        // aDayChange: da8ace1c545f4dc58096b08c7ea48114
-        // aMonthChange: 8d1071dec39a4a7ba940996983b07b34
-        jobId = "72d3a64f5d32496695437f66a2a47392";
+        //kovan (trustednode)
+	    oracle = 0xe9aC78349CEe875C8a3F31464045B9096B836f63;
+        jobId = "b00cc6f81b314aa18cf94b5fb33e018c";
+        
         fee = 1 * 10 ** 16;
-  }
+    }
 
-    function requestData(string memory _data) public returns (bytes32 requestId) {
+
+    function requestNftData() public returns (bytes32 requestId) {
         Chainlink.Request memory request = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
-        request.add("get", "https://nft.truflation.com/indexes/top11");
-        request.add("path", _data);
-        int timesAmount;
-        request.addInt("times", timesAmount);
         return sendChainlinkRequestTo(oracle, request, fee);
     }
 
-    function fulfill(bytes32 _requestId, uint256 _data) public recordChainlinkFulfillment(_requestId) {
-        data = _data;
+    function fulfill(bytes32 _requestId, string calldata _indexName, int256 _indexValue, int256 _aDayChange, int256 _aMonthChange) public {
+        nftData.indexName = _indexName;
+        nftData.indexValue = _indexValue;
+        nftData.aDayChange = _aDayChange;
+        nftData.aMonthChange = _aMonthChange;
+        indexName = _indexName;
+        indexValue = _indexValue;
+        aDayChange = _aDayChange;
+        aMonthChange = _aMonthChange;
+    }
+
+    function changeOracle(address _oracle) public onlyOwner {
+        oracle = _oracle;
+    }
+
+    function changeJobId(string memory _jobId) public onlyOwner {
+        jobId = bytes32(bytes(_jobId));
     }
 
     function getChainlinkToken() public view returns (address) {
@@ -57,4 +72,5 @@ contract NftIndexTester is ChainlinkClient, ConfirmedOwner {
     LinkTokenInterface link = LinkTokenInterface(chainlinkTokenAddress());
     require(link.transfer(msg.sender, link.balanceOf(address(this))), "Unable to transfer");
   }
+
 }
