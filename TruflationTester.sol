@@ -18,28 +18,37 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
         setPublicChainlinkToken();
         setPublicChainlinkToken();
 
-	//mainnet
-        // oracle = 0x17dED59fCd940F0a40462D52AAcD11493C6D8073;
-	// jobId = "8ec81f6d1d75448b8f44742ff07199e3";
+	      // mainnet (trustednode)
+        // oracle = 0xB75e9a5d8ed256De9b5834C32fc54D4b4d095F57;
+	      // jobId = "66922acd76274fc18ba461daf7d94c52";
 
         //rinkeby
-	oracle = 0x142b60da0bfA583Dc2877e2aC12B7f511b8bD2db;
-        jobId = "3381d621bc574c4590163a12a990c377";
+	      // oracle = 0x142b60da0bfA583Dc2877e2aC12B7f511b8bD2db;
+        // jobId = "3381d621bc574c4590163a12a990c377";
+  
+        // kovan (trustednode)
+        oracle = 0xe9aC78349CEe875C8a3F31464045B9096B836f63;
+        jobId = "b04c2a85143c43089c1befe7c41dea93";
+
         fee = 1 * 10 ** 16;
   }
 
 
-    function requestInflationData(string memory _inflationData) public returns (bytes32 requestId) {
+    function requestInflationData() public returns (bytes32 requestId) {
         Chainlink.Request memory request = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
-        request.add("truflation", "https://api.truflation.com/current");
-        request.add("path", _inflationData);
-        int timesAmount = 10**18;
-        request.addInt("times", timesAmount);
         return sendChainlinkRequestTo(oracle, request, fee);
     }
 
     function fulfill(bytes32 _requestId, uint256 _inflation) public recordChainlinkFulfillment(_requestId) {
         inflation = _inflation;
+    }
+
+    function changeOracle(address _oracle) public onlyOwner {
+        oracle = _oracle;
+    }
+
+    function changeJobId(string memory _jobId) public onlyOwner {
+        jobId = bytes32(bytes(_jobId));
     }
 
     function getChainlinkToken() public view returns (address) {
