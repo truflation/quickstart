@@ -14,21 +14,14 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     uint256 public fee;
 
 
-    constructor() ConfirmedOwner(msg.sender) {
-        setPublicChainlinkToken();
-        setPublicChainlinkToken();
+    constructor(address _link) ConfirmedOwner(msg.sender) {
 
-	      // mainnet (trustednode)
-        // oracle = 0xB75e9a5d8ed256De9b5834C32fc54D4b4d095F57;
-	      // jobId = "66922acd76274fc18ba461daf7d94c52";
-
-        //rinkeby
-	      // oracle = 0x142b60da0bfA583Dc2877e2aC12B7f511b8bD2db;
-        // jobId = "3381d621bc574c4590163a12a990c377";
-  
-        // kovan (trustednode)
-        oracle = 0xe9aC78349CEe875C8a3F31464045B9096B836f63;
+        setChainlinkToken(_link);
+        
+        //Please refer to README and find corresponding chain's information
+        oracle = 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480;
         jobId = "b04c2a85143c43089c1befe7c41dea93";
+
 
         fee = 1 * 10 ** 16;
   }
@@ -41,6 +34,10 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
 
     function fulfill(bytes32 _requestId, uint256 _inflation) public recordChainlinkFulfillment(_requestId) {
         inflation = _inflation;
+    }
+
+    function resetInflation() public {
+        inflation = 0;
     }
 
     function changeOracle(address _oracle) public onlyOwner {
