@@ -1,4 +1,4 @@
-1. Get some kovan LINK from [ChainLink faucet](https://faucets.chain.link/)
+1. Get some rinkeby LINK from [ChainLink faucet](https://faucets.chain.link/)
 2. Load [Truflation](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/TruflationTester.sol) or [NFTIndex] (https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/NFTIndexTester.sol)
 into remix
 3. compile
