@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.13;
 
 import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 import "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol";
@@ -28,7 +28,6 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
 	// BNB Smart Chain Mainnet
         // oracle = 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480;
         // jobId = "b04c2a85143c43089c1befe7c41dea93";
-
         fee = 1 * 10 ** 16;
   }
 
