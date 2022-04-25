@@ -11,7 +11,7 @@ Remix - https://remix.ethereum.org/
 ## Ethereum Mainnet (Chain ID: 1)
 
 - Payment amount: 0.01 LINK
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+- Oracle address: 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
 - LINK token address: 0x514910771af9ca656af840dff83e8264ecf986ca
 - Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
 - Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
