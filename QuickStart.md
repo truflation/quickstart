@@ -1,5 +1,5 @@
 1. Get some LINK from [ChainLink faucet](https://faucets.chain.link/)
-2. Load [Truflation](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/TruflationTester.sol) or [NFTIndex](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/NFTIndexTester.sol)
+2. Load [Truflation](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/TruflationTester.sol)
    into remix
 3. replace `oracle` & `jobId` according to your network from [README](https://github.com/truflation/quickstart/blob/main/README.md)
 4. compile
