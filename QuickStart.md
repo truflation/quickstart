@@ -1,3 +1,5 @@
+This guide will allow you to query Truflation on the Rinkeby testnet. Follow the steps below to set up a smart contract that makes a query through Chainlink. A sample of this smart contract is deployed at ..., you can try querying it through `Contract > Read Contract > Method name`.
+
 1. Get some LINK from [ChainLink faucet](https://faucets.chain.link/)
 2. Load [Truflation](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/TruflationTester.sol)
    into remix
