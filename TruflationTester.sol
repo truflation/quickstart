@@ -13,15 +13,21 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     bytes32 public jobId;
     uint256 public fee;
 
-
     constructor(address _link) ConfirmedOwner(msg.sender) {
-
         setChainlinkToken(_link);
         
         //Please refer to README and find corresponding chain's information
-        oracle = 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480;
-        jobId = "b04c2a85143c43089c1befe7c41dea93";
+        // Ethereum mainnet
+	// oracle = 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
+	// jobId = "b04c2a85143c43089c1befe7c41dea93"
 
+	// Ethereum Rinkeby Testnet (Chain ID: 4)
+	oracle = 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+	jobId = "b04c2a85143c43089c1befe7c41dea93"
+
+	// BNB Smart Chain Mainnet
+        // oracle = 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480;
+        // jobId = "b04c2a85143c43089c1befe7c41dea93";
 
         fee = 1 * 10 ** 16;
   }
@@ -49,12 +55,13 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     }
 
     function getChainlinkToken() public view returns (address) {
-    return chainlinkTokenAddress();
+        return chainlinkTokenAddress();
     }
 
     function withdrawLink() public onlyOwner {
     LinkTokenInterface link = LinkTokenInterface(chainlinkTokenAddress());
-    require(link.transfer(msg.sender, link.balanceOf(address(this))), "Unable to transfer");
+    require(link.transfer(msg.sender, link.balanceOf(address(this))),
+    "Unable to transfer");
   }
 
 
