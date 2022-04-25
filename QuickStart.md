@@ -1,9 +1,11 @@
-1. Get some rinkeby LINK from [ChainLink faucet](https://faucets.chain.link/)
+1. Get some LINK from [ChainLink faucet](https://faucets.chain.link/)
 2. Load [Truflation](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/TruflationTester.sol) or [NFTIndex] (https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/NFTIndexTester.sol)
-into remix
-3. compile
-4. deploy to Injected web3
-5. Send some LINK to smart contract - 0.01 to run
-6. run requestInflationData with string currentInflationIndex
-7. wait for inflation index to update
-8. call inflation to get the result
+   into remix
+3. replace `oracle` & `jobId` according to your network from [README](https://github.com/truflation/quickstart/blob/main/README.md)
+4. compile
+5. fill in \_link with the corresponding [link token address](https://docs.chain.link/docs/link-token-contracts/)
+6. deploy to Injected web3 & mark down your contract address
+7. send some LINK to your smart contract - 0.01 to run
+8. call function `requestInflationData`/`requestNftData`
+9. wait for `inflation`/`nftData` to update
+10. call `inflation`/`nftData` to get the result

@@ -24,17 +24,13 @@ contract NftIndexTester is ChainlinkClient, ConfirmedOwner {
     uint256 public fee;
 
 
-    constructor() ConfirmedOwner(msg.sender) {
-        setPublicChainlinkToken();
-        setPublicChainlinkToken();
+    constructor(address _link) ConfirmedOwner(msg.sender) {
 
-	    //mainnet (trustednode)
-        // oracle = 0xB75e9a5d8ed256De9b5834C32fc54D4b4d095F57;
-	    // jobId = "a492998425084c46bb5009b77cf06cb7";
-
-        //kovan (trustednode)
-	    oracle = 0xe9aC78349CEe875C8a3F31464045B9096B836f63;
-        jobId = "b00cc6f81b314aa18cf94b5fb33e018c";
+        setChainlinkToken(_link);
+        
+        //Please refer to README and find corresponding chain's information
+	    oracle = 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480;
+        jobId = "eb4f0d822a4c481ca88e5a3ab2fec562";
         
         fee = 1 * 10 ** 16;
     }
@@ -54,6 +50,17 @@ contract NftIndexTester is ChainlinkClient, ConfirmedOwner {
         indexValue = _indexValue;
         aDayChange = _aDayChange;
         aMonthChange = _aMonthChange;
+    }
+
+    function resetData() public {
+        nftData.indexName = "";
+        nftData.indexValue = 0;
+        nftData.aDayChange = 0;
+        nftData.aMonthChange = 0;
+        indexName = "";
+        indexValue = 0;
+        aDayChange = 0;
+        aMonthChange = 0;
     }
 
     function changeOracle(address _oracle) public onlyOwner {
