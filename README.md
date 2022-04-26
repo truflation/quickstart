@@ -1,5 +1,9 @@
 # Links
 
+For help on quickstart - Look at the Laguna Labs Developer Chat
+
+https://discord.com/channels/592041321326182401/593079921782423582
+
 Truflation page - https://market.link/data-providers/6c1aa26b-ec72-4753-b40e-3f43d3538108/integrations
 
 Remix - https://remix.ethereum.org/
