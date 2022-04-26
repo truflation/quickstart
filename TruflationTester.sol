@@ -16,20 +16,22 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     constructor(address _link) ConfirmedOwner(msg.sender) {
         setChainlinkToken(_link);
         
-        //Please refer to README and find corresponding chain's information
+        // Please refer to README and find corresponding chain's information
+
         // Ethereum mainnet
-	// oracle = 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A;
-	// jobId = "b04c2a85143c43089c1befe7c41dea93";
+        // oracle = 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A;
+        // jobId = "b04c2a85143c43089c1befe7c41dea93";
 
-	// Ethereum Rinkeby Testnet (Chain ID: 4)
-	oracle = 0x17dED59fCd940F0a40462D52AAcD11493C6D8073;
-	jobId = "b04c2a85143c43089c1befe7c41dea93";
-
-	// BNB Smart Chain Mainnet
+        // BNB Smart Chain Mainnet
         // oracle = 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480;
         // jobId = "b04c2a85143c43089c1befe7c41dea93";
+
+        // Ethereum Rinkeby Testnet (Chain ID: 4)
+        oracle = 0x17dED59fCd940F0a40462D52AAcD11493C6D8073;
+        jobId = "b04c2a85143c43089c1befe7c41dea93";
+
         fee = 1 * 10 ** 16;
-  }
+    }
 
 
     function requestInflationData() public returns (bytes32 requestId) {
