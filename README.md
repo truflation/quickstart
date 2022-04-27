@@ -12,7 +12,9 @@ Remix - https://remix.ethereum.org/
 
 # Network Details
 
-## Ethereum Mainnet (Chain ID: 1)
+## Ethereum
+
+### Ethereum Mainnet (Chain ID: 1)
 
 - Payment amount: 0.01 LINK
 - Oracle address: 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
@@ -20,7 +22,7 @@ Remix - https://remix.ethereum.org/
 - Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
 - Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
 
-## Ethereum Rinkeby Testnet (Chain ID: 4)
+### Ethereum Rinkeby Testnet (Chain ID: 4)
 
 - Payment amount: 0.01 LINK
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
@@ -28,7 +30,9 @@ Remix - https://remix.ethereum.org/
 - Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
 - Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
 
-## BNB Smart Chain Mainnet (Chain ID: 56)
+## BNB Smart Chain
+
+### BNB Smart Chain Mainnet (Chain ID: 56)
 
 - Payment amount: 0.01 LINK
 - Oracle address: 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480
@@ -37,12 +41,33 @@ Remix - https://remix.ethereum.org/
 - Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
 
 **Important**
-**The LINK provided by the BNB Chain Bridge is not ERC-677 compatible, so cannot be used with Chainlink oracles. However, it can be [converted to the official LINK token on BNB Chain using Chainlink's PegSwap service](https://pegswap.chain.link/).**
+**The LINK provided by the [BNB Chain Bridge](https://www.bnbchain.world/en/bridge) is not ERC-677 compatible, so cannot be used with Chainlink oracles. However, it can be [converted to the official LINK token on BNB Chain using Chainlink's PegSwap service](https://pegswap.chain.link/?_ga=2.171353062.756683581.1650345653-1161789045.1649048909).**
 
-## BNB Smart Chain Testnet (Chain ID: 97)
+### BNB Smart Chain Testnet (Chain ID: 97)
 
 - Payment amount: 0.01 LINK
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
 - LINK token address: 0x84b9b910527ad5c03a9ca831909e21e236ea7b06
+- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
+- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
+
+## Polygon
+
+### Polygon Mainnet (Chain ID: 137)
+
+- Payment amount: 0.01 LINK
+- Oracle address: 0xA96474C1A08374EFd0F3C9BC7153FDA7A6c8d9e1
+- LINK token address: 0xb0897686c545045afc77cf20ec7a532e3120e0f1
+- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
+- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
+
+**Important**
+**The LINK provided by the [Polygon (Matic) Bridge](https://wallet.polygon.technology/bridge) is not ERC-677 compatible, so cannot be used with Chainlink oracles. However, it can be [converted to the official LINK token on Polygon (Matic) using Chainlink's PegSwap service](https://pegswap.chain.link/?_ga=2.130074441.756683581.1650345653-1161789045.1649048909)**
+
+### Mumbai Testnet (Chain ID: 80001)
+
+- Payment amount: 0.01 LINK
+- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+- LINK token address: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB
 - Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
 - Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
