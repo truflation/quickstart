@@ -31,3 +31,6 @@ To query the contract
 12. press the orange `requestInflationData` button to fetch inflation data from Chainlink and store the result in your contract
 13. when confirmed, press the blue `inflation` button to see the result
 
+## Interfacing with web
+
+An example web3 app to interface with the contract is in the directory frontend
