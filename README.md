@@ -2,7 +2,7 @@
 
 For help on quickstart - Look at the Laguna Labs Developer Chat
 
-https://discord.com/channels/592041321326182401/593079921782423582
+https://discord.com/channels/967280164071407666/968071680360587264
 
 Truflation page - https://market.link/data-providers/6c1aa26b-ec72-4753-b40e-3f43d3538108/integrations
 
@@ -71,3 +71,7 @@ Remix - https://remix.ethereum.org/
 - LINK token address: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB
 - Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
 - Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
+
+## Other links
+
+Chainlink Hackathlon 2022 - https://discord.com/channels/945776468452069426/963854788230017106
