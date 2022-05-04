@@ -1,0 +1,34 @@
+type = "directrequest"
+schemaVersion = 1
+name = ""
+maxTaskDuration = "0s"
+contractAddress = "0x0Ad44D64eD0B7acE8C1C0611E72f12dF1Fe016fa"
+minIncomingConfirmations = 0
+minContractPaymentLinkJuels = "10000000000000000"
+observationSource = """
+// First, we parse the request log and the CBOR payload inside of it
+decode_log  [type="ethabidecodelog"
+             data="$(jobRun.logData)"
+             topics="$(jobRun.logTopics)"
+             abi="OracleRequest(bytes32 indexed specId, address requester, bytes32 requestId, uint256 payment, address callbackAddr, bytes4 callbackFunctionId, uint256 cancelExpiration, uint256 dataVersion, bytes data)"]
+
+decode_cbor [type="cborparse"
+             data="$(decode_log.data)"]
+
+// Then, we use the decoded request parameters to make an HTTP fetch
+fetch [type="bridge" name="test" requestData="$(decode_cbor)"]
+
+encode_large [type="ethabiencode"
+                abi="(bytes32 requestId, bytes _data)"
+                data="{\\"requestId\\": $(decode_log.requestId), \\"_data\\": $(fetch)}"
+                ]
+
+encode_tx       [type="ethabiencode"
+                 abi="fulfillOracleRequest2(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes data)"
+                 data="{\\"requestId\\": $(decode_log.requestId), \\"payment\\": $(decode_log.payment), \\"callbackAddress\\": $(decode_log.callbackAddr), \\"callbackFunctionId\\": $(decode_log.callbackFunctionId), \\"expiration\\": $(decode_log.cancelExpiration), \\"data\\": $(encode_large)}"
+                 ]
+
+submit_tx  [type="ethtx" to="0x0Ad44D64eD0B7acE8C1C0611E72f12dF1Fe016fa" data="$(encode_tx)"]
+
+decode_log -> decode_cbor -> fetch -> encode_large -> encode_tx -> submit_tx
+"""

@@ -5,7 +5,8 @@ import "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol";
 
 contract MyClient is ChainlinkClient, ConfirmedOwner {
     using Chainlink for Chainlink.Request;
-    uint256 public answer;
+    bytes public result;
+    mapping(bytes32 => bytes) public results;
     address public oracleId;
     bytes32 public jobId;
     uint256 public fee;
@@ -21,18 +22,20 @@ contract MyClient is ChainlinkClient, ConfirmedOwner {
     function doRequest(
         string memory service,
         string memory data,
-        string memory jsonPath) public returns (bytes32 requestId) {
+        string memory keypath,
+	string memory abi_) public returns (bytes32 requestId) {
         Chainlink.Request memory req = buildChainlinkRequest(jobId, 
-            address(this), this.fulfill.selector);
+            address(this), this.fulfillBytes.selector);
         req.add("service", service);
 	    req.add("data", data);
-        req.add("jsonPath", jsonPath);
-
+        req.add("keypath", keypath);
+	req.add("abi", abi_);
         return sendChainlinkRequestTo(oracleId, req, fee);
     }
 
-    function fulfill(bytes32 _requestId, uint256 _answer) public recordChainlinkFulfillment(_requestId) {
-        answer = _answer;
+    function fulfillBytes(bytes32 _requestId, bytes memory bytesData) public recordChainlinkFulfillment(_requestId) {
+        result = bytesData;
+	results[_requestId] = bytesData;
     }
 
     function changeOracle(address _oracle) public onlyOwner {
@@ -51,5 +54,4 @@ contract MyClient is ChainlinkClient, ConfirmedOwner {
     LinkTokenInterface link = LinkTokenInterface(chainlinkTokenAddress());
     require(link.transfer(msg.sender, link.balanceOf(address(this))), "Unable to transfer");
   }
-
 }

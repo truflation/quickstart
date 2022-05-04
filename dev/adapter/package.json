@@ -1,14 +1,18 @@
 {
-  "name": "nft-index-adapter",
+  "name": "api-adapter",
   "version": "1.0.0",
   "main": "index.ts",
   "license": "MIT",
   "scripts": {
     "test": "./node_modules/.bin/_mocha --timeout 0",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "docker build -t truflation/api-adapter . --no-cache"
   },
   "dependencies": {
-    "@chainlink/external-adapter": "^0.2.3"
+    "@chainlink/external-adapter": "^0.2.3",
+    "cbor": "^8.1.0",
+    "json-keypath": "^0.1.2",
+    "web3-eth-abi": "^1.7.3"
   },
   "devDependencies": {
     "body-parser": "^1.19.0",
