@@ -1,0 +1,44 @@
+version: "3.8"
+
+services: 
+  postgres:
+    image: postgres:13.1-alpine
+    ports:
+      - 5432:5432
+    env_file: 
+      - postgres.env
+    volumes: 
+      - db-data:/var/lib/postgresql/data
+  api-adapter:
+    env_file:
+      - api-adapter.env
+    build:
+      context: ../adapter
+      dockerfile: ../adapter/Dockerfile
+    ports:
+      - 8081:8081
+  chainlink:
+    build:
+       context: ../chainnode
+       dockerfile: ../chainnode/Dockerfile
+    env_file:
+      - chainlink.env
+    command: node start -p /chainlink/.password -a /chainlink/.api
+    restart: on-failure
+    ports: 
+      - 6688:6688
+    links:
+      - postgres
+    depends_on: 
+      - postgres
+    volumes:
+      - chainlink_data:/chainlink
+  frontend:
+     build:
+       context: ../frontend
+       dockerfile: ../frontend/Dockerfile
+     ports:
+       - 9011:9011
+volumes: 
+  db-data:
+  chainlink_data:
