@@ -1,1 +1,6 @@
-{"dependencies":{"@chainlink/contracts":"^0.4.0"}}
+{
+  "license": "MIT",
+  "dependencies": {
+    "@chainlink/contracts": "^0.4.0"
+  }
+}
