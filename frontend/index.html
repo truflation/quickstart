@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.3/web3.min.js"></script>
+  <script src="./abi.js"></script>
+  <script src="./index.js"></script>
+</head>
+<body>
+  <h1>Truflation test app</h1>
+  <button class="enableEthereumButton">Enable Ethereum</button><br />
+  Account: <span class="showAccount"></span><br />
+  Chain: <span class="showChain"></span><br><br />
+  <section id="contract">
+    Contract Address:
+    <input type="text" size="50" id="inflation:address"
+	   value=""
+	   />
+    <button type="button" onClick="requestInflationData();">Request
+      inflation data</button>
+    <button type="button" onClick="getInflation();">Get
+      inflation</button>
+    <br />
+    <span id="inflation:output"></span><br />
+  </section>
+  <br />
+  <br />
+
+  <section id="contract">
+    Contract Address:
+    <input type="text" size="50" id="balance:address"
+	   value=""
+	   />
+    <button type="button" onClick="getBalance();">Get
+      balance</button>
+    <br />
+    <span id="balance:output"></span>
+  </section>
+</body>
+</html>
