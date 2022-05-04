@@ -74,4 +74,5 @@ Remix - https://remix.ethereum.org/
 
 ## Other links
 
+Truflation Discord - https://discord.gg/5AMCBYxfW4
 Chainlink Hackathlon 2022 - https://discord.com/channels/945776468452069426/963854788230017106
