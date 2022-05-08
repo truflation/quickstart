@@ -148,11 +148,11 @@ async function doOracleRequest(request, output) {
     erc20_abi, link_token
   )
   const request_txn = oracle.methods.doRequest(
-    request.service,
-    request.data,
-    request.keypath,
-    request.abi,
-    request.multiplier
+    request.service ? request.service : "",
+    request.data ? request.data : "",
+    request.keypath ? request.keypath : "",
+    request.abi ? request.abi : "",
+    request.multiplier ? request.multiplier : ""
   )
   const fee = await oracle.methods.fee().call()
   const transfer = token_contract.methods.transfer(

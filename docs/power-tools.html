@@ -7,7 +7,18 @@
   <script src="./index.js"></script>
   <script type="text/javascript">
     function getMartianAleIndex() {
-      
+      let oracle_address = document.querySelector('#oracle\\:address')
+      doOracleRequest({
+        "address": oracle_address ? oracle_address.value : "",
+        "service": "stub1",
+        "keypath": "martianale",
+        "abi": "json",
+        "data": '{"range": [0, 100], "indexes": ["martianale"]}',
+      }, {
+        "output":  document.querySelector('#martianale\\:output'),
+        "status": document.querySelector('#martianale\\:status')
+      })
+
     }
     function runOracle() {
       let oracle_address = document.querySelector('#oracle\\:address')
@@ -26,9 +37,31 @@
         "multiplier": oracle_multiplier ? oracle_multiplier.value : "",
         "data": oracle_data ? oracle_data.value : "",
       }, {
-        "output":  document.querySelector('#oracle\\:output'),
+        "output": document.querySelector('#oracle\\:output'),
         "status": document.querySelector('#oracle\\:status')
       })
+    }
+    function getEchoValues() {
+      document.querySelector('#oracle\\:service').value = "echo"
+      document.querySelector('#oracle\\:keypath').value = "foo"
+      document.querySelector('#oracle\\:abi').value = "json"
+      document.querySelector('#oracle\\:data').value = '{"foo": 1024}'
+      document.querySelector('#oracle\\:multiplier').value = ''
+    }
+    function getStubValues() {
+      document.querySelector('#oracle\\:service').value = "stub1"
+      document.querySelector('#oracle\\:keypath').value = "martianale"
+      document.querySelector('#oracle\\:abi').value = "json"
+      document.querySelector('#oracle\\:data').value =
+        '{"range": [0, 100], "indexes": ["martianale"]}'
+      document.querySelector('#oracle\\:multiplier').value = ''
+    }
+    function getInflationValues() {
+      document.querySelector('#oracle\\:service').value = "truflation/current"
+      document.querySelector('#oracle\\:keypath').value = ''
+      document.querySelector('#oracle\\:abi').value = "json"
+      document.querySelector('#oracle\\:data').value = ''
+      document.querySelector('#oracle\\:multiplier').value = ''
     }
   </script>
 </head>
@@ -46,12 +79,21 @@
     <button type="button" onClick="getMartianAleIndex()">
       Martian ale index
     </button>
-    <br />
-    <span id="output:martianale"></span>
+    <span id="martianale:output"></span><br />
+    <span id="martianale:status"></span>
   </section>
   <br />
-
   <section id="api-tester">
+    <h3>API Tester</h3>
+    <button type="button" onClick="getEchoValues()">
+      Get Echo Values
+    </button>
+    <button type="button" onClick="getStubValues()">
+      Get Stub Values
+    </button>
+    <button type="button" onClick="getInflationValues()">
+      Get Inflation Values
+    </button><br />
     Service: <input type="text" size="50" id="oracle:service" /><br />
     Keypath: <input type="text" size="50" id="oracle:keypath" /><br />
     Abi: <input type="text" size="50" id="oracle:abi" /><br />
