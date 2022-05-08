@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.3/web3.min.js"></script>
+  <script src="./abi.js"></script>
+  <script src="./index.js"></script>
+  <script type="text/javascript">
+    function getMartianAleIndex() {
+      
+    }
+    function runOracle() {
+      let oracle_address = document.querySelector('#oracle\\:address')
+      let oracle_service = document.querySelector('#oracle\\:service')
+      let oracle_keypath = document.querySelector('#oracle\\:keypath')
+      let oracle_abi = document.querySelector('#oracle\\:abi')
+      let oracle_multiplier = document.querySelector('#oracle\\:multiplier')
+      let oracle_data = document.querySelector('#oracle\\:data')
+      console.log(oracle_address)
+
+      doOracleRequest({
+        "address": oracle_address ? oracle_address.value : "",
+        "service": oracle_service ? oracle_service.value : "",
+        "keypath": oracle_keypath ? oracle_keypath.value : "",
+        "abi": oracle_abi ? oracle_abi.value : "",
+        "multiplier": oracle_multiplier ? oracle_multiplier.value : "",
+        "data": oracle_data ? oracle_data.value : "",
+      }, {
+        "output":  document.querySelector('#oracle\\:output'),
+        "status": document.querySelector('#oracle\\:status')
+      })
+    }
+  </script>
+</head>
+<body>
+  <h1>Truflation power tools</h1>
+  <button class="enableEthereumButton">Enable Ethereum</button><br />
+  Account: <span class="showAccount"></span><br />
+  Chain: <span class="showChain"></span><br><br />
+  Oracle address:
+  <input type="text" size="50" id="oracle:address"
+	 value=""
+	 /><br />
+  <br />
+  <section id="stub-example">
+    <button type="button" onClick="getMartianAleIndex()">
+      Martian ale index
+    </button>
+    <br />
+    <span id="output:martianale"></span>
+  </section>
+  <br />
+
+  <section id="api-tester">
+    Service: <input type="text" size="50" id="oracle:service" /><br />
+    Keypath: <input type="text" size="50" id="oracle:keypath" /><br />
+    Abi: <input type="text" size="50" id="oracle:abi" /><br />
+    Multiplier: <input type="text" size="50" id="oracle:multiplier" /><br />
+    Data:<br> <textarea id="oracle:data"></textarea><br />
+    <button type="button" onClick="runOracle();">Run
+    Oracle</button><br />
+    <span id="oracle:status"></span><br />
+    <span id="oracle:output"></span>
+  </section>
+
+  <a href="power-tools.html">Power tools</a> 
+</body>
+</html>
