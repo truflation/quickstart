@@ -8,9 +8,9 @@
   <script src="./index.js"></script>
   <script type="text/javascript">
     function getMartianAleIndex() {
-      let oracle_address = document.querySelector('#oracle\\:address')
+      let oracleAddress = document.querySelector('#oracle\\:address')
       doOracleRequest({
-        "address": oracle_address ? oracle_address.value : "",
+        "address": oracleAddress ? oracleAddress.value : "",
         "service": "stub1",
         "keypath": "martianale",
         "abi": "json",
@@ -22,21 +22,21 @@
 
     }
     function runOracle() {
-      let oracle_address = document.querySelector('#oracle\\:address')
-      let oracle_service = document.querySelector('#oracle\\:service')
-      let oracle_keypath = document.querySelector('#oracle\\:keypath')
-      let oracle_abi = document.querySelector('#oracle\\:abi')
-      let oracle_multiplier = document.querySelector('#oracle\\:multiplier')
-      let oracle_data = document.querySelector('#oracle\\:data')
-      console.log(oracle_address)
+      let oracleAddress = document.querySelector('#oracle\\:address')
+      let oracleService = document.querySelector('#oracle\\:service')
+      let oracleKeypath = document.querySelector('#oracle\\:keypath')
+      let oracleAbi = document.querySelector('#oracle\\:abi')
+      let oracleMultiplier = document.querySelector('#oracle\\:multiplier')
+      let oracleData = document.querySelector('#oracle\\:data')
+      console.log(oracleAddress)
 
       doOracleRequest({
-        "address": oracle_address ? oracle_address.value : "",
-        "service": oracle_service ? oracle_service.value : "",
-        "keypath": oracle_keypath ? oracle_keypath.value : "",
-        "abi": oracle_abi ? oracle_abi.value : "",
-        "multiplier": oracle_multiplier ? oracle_multiplier.value : "",
-        "data": oracle_data ? oracle_data.value : "",
+        "address": oracleAddress ? oracleAddress.value : "",
+        "service": oracleService ? oracleService.value : "",
+        "keypath": oracleKeypath ? oracleKeypath.value : "",
+        "abi": oracleAbi ? oracleAbi.value : "",
+        "multiplier": oracleMultiplier ? oracleMultiplier.value : "",
+        "data": oracleData ? oracleData.value : "",
       }, {
         "output": document.querySelector('#oracle\\:output'),
         "status": document.querySelector('#oracle\\:status')
