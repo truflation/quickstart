@@ -2,9 +2,74 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="./favicon.ico"/>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.3/web3.min.js"></script>
   <script src="./abi.js"></script>
   <script src="./index.js"></script>
+  <script type="text/javascript">
+    async function getBalance () {
+  const address = document.getElementById('balance:address').value
+  try {
+    const wei = await web3.eth.getBalance(address)
+    const balance = web3.utils.fromWei(wei, 'ether')
+    document.getElementById('balance:output').innerHTML = balance + ' ETH'
+  } catch (err) {
+    document.getElementById('balance:output').innerHTML = err
+  }
+}
+
+async function getInflation () {
+  try {
+    const address = document.getElementById('inflation:address').value
+    const contract = new web3.eth.Contract(inflation_abi, address)
+    document.getElementById('inflation:output').innerHTML =
+      await contract.methods.inflationString().call()
+  } catch (err) {
+    document.getElementById('inflation:output').innerHTML = err
+  }
+}
+
+async function refreshInflation() {
+  try {
+    const address = document.getElementById('inflation:address').value
+    const contract = new web3.eth.Contract(inflation_abi, address)
+    console.log(contract)
+    const link_token = await contract.methods.getChainlinkToken().call()
+    console.log(link_token)
+    document.getElementById('inflation:output').innerHTML = ''
+    const token_contract = new web3.eth.Contract(
+      erc20_abi, link_token
+    )
+    const fee = await contract.methods.fee().call()
+    console.log(fee)
+    const transfer = token_contract.methods.transfer(
+      address, fee
+    )
+    await transfer.send({
+      from: getAccount(),
+      to: address
+    })
+    document.getElementById('inflation:output').innerHTML = "Refreshing ..."
+    const request = contract.methods.requestInflationString()
+    
+    const txn = await request.send({
+      from: getAccount(),
+      to: address
+    })
+    const id = txn.events.ChainlinkRequested.returnValues.id
+    contract.events.ChainlinkFulfilled({
+        filter: { id }
+      },
+      (error, event) => { console.log('value', error, event) })
+      .on('data', async (event) => {
+        document.getElementById('inflation:output').innerHTML =
+          await contract.methods.inflationString().call()
+      })
+  } catch (err) {
+    document.getElementById('inflation:output').innerHTML = err
+  }
+}
+  </script>
 </head>
 <body>
   <h1>Truflation test app</h1>
