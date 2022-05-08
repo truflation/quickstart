@@ -33,12 +33,6 @@ services:
       - postgres
     volumes:
       - chainlink_data:/chainlink
-  frontend:
-     build:
-       context: ../..docs
-       dockerfile: ../../Dockerfile
-     ports:
-       - 9011:9011
 volumes: 
   db-data:
   chainlink_data:
