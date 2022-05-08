@@ -1,4 +1,3 @@
-var web3, accounts
 window.addEventListener('load', function () {
   const ethereumButton = document.querySelector('.enableEthereumButton')
   const showAccount = document.querySelector('.showAccount')
@@ -14,12 +13,9 @@ window.addEventListener('load', function () {
           document.getElementById('inflation:address')
     const oracleAddress =
           document.getElementById('oracle:address')
-    if (balanceAddress)
-      balanceAddress.value = accounts[0]
-    if(inflationAddress)
-      inflationAddress.value = '0x79053120810FdDf61ceFB781fc898D1cf52A44a0'
-    if(oracleAddress)
-      oracleAddress.value = '0x8a88122D96468B1c362Af6E6e0AA7c63a62892b7'
+    if (balanceAddress) { balanceAddress.value = accounts[0] }
+    if (inflationAddress) { inflationAddress.value = '0x79053120810FdDf61ceFB781fc898D1cf52A44a0' }
+    if (oracleAddress) { oracleAddress.value = '0x8a88122D96468B1c362Af6E6e0AA7c63a62892b7' }
     document.querySelector('.showChain').innerHTML =
       window.ethereum.networkVersion
   }
@@ -33,7 +29,7 @@ window.addEventListener('load', function () {
   }
 })
 
-function getAccount() {
+function getAccount () {
   return accounts[0]
 }
 
@@ -81,38 +77,37 @@ function decode (data, web3, abi, multiplier) {
   return retval
 }
 
-
-async function doOracleRequest(request, output) {
+async function doOracleRequest (request, output) {
   console.log(request)
   const oracle = new web3.eth.Contract(
-    oracle_abi, request.address)
-  const link_token = await oracle.methods.getChainlinkToken().call()
-  const token_contract = new web3.eth.Contract(
-    erc20_abi, link_token
+    oracleAbi, request.address)
+  const linkToken = await oracle.methods.getChainlinkToken().call()
+  const tokenContract = new web3.eth.Contract(
+    erc20Abi, linkToken
   )
-  const request_txn = oracle.methods.doRequest(
-    request.service ? request.service : "",
-    request.data ? request.data : "",
-    request.keypath ? request.keypath : "",
-    request.abi ? request.abi : "",
-    request.multiplier ? request.multiplier : ""
+  const requestTxn = oracle.methods.doRequest(
+    request.service ? request.service : '',
+    request.data ? request.data : '',
+    request.keypath ? request.keypath : '',
+    request.abi ? request.abi : '',
+    request.multiplier ? request.multiplier : ''
   )
   const fee = await oracle.methods.fee().call()
-  const transfer = token_contract.methods.transfer(
+  const transfer = tokenContract.methods.transfer(
     request.address, fee
   )
   await transfer.send({
     from: accounts[0],
     to: request.address
   })
-  const txn = await request_txn.send({
+  const txn = await requestTxn.send({
     from: accounts[0],
     to: request.address
   })
   const id = txn.events.ChainlinkRequested.returnValues.id
   console.log(id)
   output.status.innerHTML = id
-  try {    
+  try {
     oracle.events.ChainlinkFulfilled(
       {
         filter: { id }

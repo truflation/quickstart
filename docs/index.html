@@ -21,7 +21,7 @@
 async function getInflation () {
   try {
     const address = document.getElementById('inflation:address').value
-    const contract = new web3.eth.Contract(inflation_abi, address)
+    const contract = new web3.eth.Contract(inflationAbi, address)
     document.getElementById('inflation:output').innerHTML =
       await contract.methods.inflationString().call()
   } catch (err) {
@@ -32,13 +32,13 @@ async function getInflation () {
 async function refreshInflation() {
   try {
     const address = document.getElementById('inflation:address').value
-    const contract = new web3.eth.Contract(inflation_abi, address)
+    const contract = new web3.eth.Contract(inflationAbi, address)
     console.log(contract)
     const link_token = await contract.methods.getChainlinkToken().call()
     console.log(link_token)
     document.getElementById('inflation:output').innerHTML = ''
     const token_contract = new web3.eth.Contract(
-      erc20_abi, link_token
+      erc20Abi, link_token
     )
     const fee = await contract.methods.fee().call()
     console.log(fee)
