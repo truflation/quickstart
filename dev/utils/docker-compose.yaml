@@ -35,8 +35,8 @@ services:
       - chainlink_data:/chainlink
   frontend:
      build:
-       context: ../frontend
-       dockerfile: ../frontend/Dockerfile
+       context: ../..docs
+       dockerfile: ../../Dockerfile
      ports:
        - 9011:9011
 volumes: 
