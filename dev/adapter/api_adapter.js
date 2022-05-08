@@ -8,28 +8,45 @@
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const { Requester, Validator } = require('@chainlink/external-adapter')
+const { Requester } = require('@chainlink/external-adapter')
 const Web3EthAbi = require('web3-eth-abi')
 const JSONKeyPath = require('json-keypath')
 const cbor = require('cbor')
 
-function extractData (data, keypath, abi) {
+function extractData (data, header) {
+  const keypath = header.keypath
+  const multiplier = header.multiplier
+  let abi = header.abi
+  console.log(header)
+
   let json = true
   if (keypath !== undefined &&
-        keypath !== '') {
+      keypath !== '') {
     data = JSONKeyPath.getValue(
       data, keypath
     )
   }
-  if (abi === undefined ||
-        abi === '' ||
-        abi === 'cbor') {
+  console.log(multiplier)
+  if (multiplier !== undefined &&
+      multiplier !== '') {
+    if (Array.isArray(data)) {
+      data = data.map((x) => BigInt(x * multiplier))
+    } else {
+      data = BigInt(data * multiplier)
+    }
+  }
+
+  if (abi === undefined || abi === '') {
+    abi = 'json'
+  }
+  if (abi === 'cbor') {
     data = cbor.encode(data)
     json = false
   } else if (abi !== 'json') {
     data = Web3EthAbi.encodeParameter(abi, data)
     json = false
   }
+
   console.log(data, json)
   return [data, json]
 }
@@ -104,7 +121,7 @@ class ApiAdapter {
     )
       .then(response => {
         const [retval, json] = extractData(
-          response.data, input.keypath, input.abi
+          response.data, input
         )
         console.log(retval)
         callback(response.status, [retval, json])
@@ -119,7 +136,49 @@ class ApiAdapter {
   }
 }
 
+function echoFunc (req, res) {
+  console.log('POST Data: ', req.body)
+  let data = req.body.data === undefined ? {} : req.body.data
+  if (typeof data === 'string' || data instanceof String) {
+    data = JSON.parse(data)
+  }
+  const [retval, json] = extractData(
+    data, req.body
+  )
+  if (json) {
+    res.json(retval)
+  } else {
+    res.write(retval)
+    res.end(undefined, 'binary')
+  }
+}
+
+function stub1Func (req, res) {
+  console.log('POST Data: ', req.body)
+  let data = req.body.data === undefined ? {} : req.body.data
+  if (typeof data === 'string' || data instanceof String) {
+    data = JSON.parse(data)
+  }
+  const range = data.range !== undefined ? data.range : [0.0, 1.0]
+  const indexes = data.indexes !== undefined ? data.indexes : ['index']
+  data = {}
+  indexes.forEach(x => {
+    data[x] = Math.random() * (range[1] - range[0]) + range[0]
+  })
+  const [retval, json] = extractData(
+    data, req.body
+  )
+  if (json) {
+    res.json(retval)
+  } else {
+    res.write(retval)
+    res.end(undefined, 'binary')
+  }
+}
+
 module.exports = {
-    ApiAdapter,
-    extractData
-};
+  ApiAdapter,
+  extractData,
+  echoFunc,
+  stub1Func
+}
