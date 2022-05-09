@@ -1,92 +1,61 @@
-# Links
+# Quickstart
 
-For help on quickstart - Look at the Laguna Labs Developer Chat
+Query [Truflation](http://www.truflation.com) inflation data by
+following one of the guides below, based on your use case.
 
-https://discord.com/channels/967280164071407666/968071680360587264
+# Smart contracts
 
-[Quick start](QuickStart.md)
+The demonstration smart contracts provide a simple interface to
+retrieve the current year-on-year truflation index for US CPI .
+Please contact truflation for additional data which we have available
+on the blockchain.
 
-# Network Details - New API
+These contracts have not been audited and are should be used at your
+own risk.
 
-Please contact developer chat for endpoints for any networks not listed
+## 1. Testing with truflationTester
 
-### Ethereum Rinkeby Testnet (Chain ID: 4)
+An existing smart contract is available for testing purposes on [Rinkeby testnet](https://rinkeby.etherscan.io/address/0x79053120810FdDf61ceFB781fc898D1cf52A44a0). This contract fetches inflation data from Truflation's Rinkeby Chainlink node and stores the last result that it fetched.
 
-- Payment amount: 0.01 LINK
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
-- Job ID: 4ed456e523e04eacaf80dd60f739b3f3
+This contract is made available only for demonstration purposes and should not be used in production by your application.
 
-# Links
+To query the contract
+1. [Visit the "Read Contract" page on Rinkeby Etherscan](https://rinkeby.etherscan.io/address/0x79053120810FdDf61ceFB781fc898D1cf52A44a0#readContract)
+2. Query the inflation value to see the last value fetched. click inflation under ["Read Contract"](https://rinkeby.etherscan.io/address/0x79053120810FdDf61ceFB781fc898D1cf52A44a0#readContract).  The inflation value is available as a string or as an integer.
+3. To fetch a new value, navigate to ["Write Contract"](https://rinkeby.etherscan.io/address/0x79053120810FdDf61ceFB781fc898D1cf52A44a0) and call `RequestInflationDataString` or `RequestInflationDataWei`. The call will not be made successfully if the contract is out of Rinkeby LINK. You can send the link fee of 0.01 LINK directly to the smart contract. Rinkeby testnet LINK
+   can be acquired from [ChainLink faucet](https://faucets.chain.link/)
+4. wait for the node to respond
 
-Truflation page - https://market.link/data-providers/6c1aa26b-ec72-4753-b40e-3f43d3538108/integrations
 
-# Legacy API
+## 2. Deploying the truflation tester
 
-These endpoints are for the Legacy API.  Any new development should use the new
-API.  Please contact developers on developer chat for the endpoints for the new
-API.
+1. Get some LINK from [ChainLink's faucet](https://faucets.chain.link/) (make sure to choose "Ethereum Rinkeby")
+2. [Open Truflation in Remix IDE](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/TruflationTester.sol)
+3. To use a network other than Rinkeby, uncomment or specify the relevant `oracle` & `jobId` accordingly (full list of available networks available  [here](https://github.com/truflation/quickstart/blob/main/README.md)).  The fee should be 1000000000000 (10*16 wei).
+4. navigate to "Solidity Compiler" from the side menu and click on "Compile TruflationTester.sol"
+5. navigate to "deploy & run transactions" from the side menu, set the "environment" to "Injected Web3", and log into your Metamask if necessary.
+6. set the "contract" field to `TruflationTester`
+7. Insert the oracle id, job id, and fee (wei) in the contract
+8. press "deploy" and sign with Metamask, wait for the transaction to be confirmed
+9. when confirmed, your deployed contract will be visible in "deployed contracts" below the "deploy" button that you just pressed
+10. press the "copy" icon to the right of your contract name (shown as something like "TRUFLATIONTESTER AT 0x000..0000 (BLOCKCHAIN)") to get your contract's address
+11. send some Rinkeby (or relevant network) LINK directly to your smart contract's address via Metamask or other wallet (0.01 LINK per call)
+12. press the orange `requestInflationDataString` or `requestInflationDataWei` button to fetch inflation data from Chainlink and store the result in your contract
+13. when confirmed, press the blue `inflationString` button to see the result
 
-## Ethereum
+# Web3 frontend
 
-### Ethereum Mainnet (Chain ID: 1)
+A sample web3 frontend using truflation data is available in the [sample-frontend repo](https://github.com/truflation/sample-frontend).
 
-- Payment amount: 0.01 LINK
-- Oracle address: 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
-- LINK token address: 0x514910771af9ca656af840dff83e8264ecf986ca
-- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
-- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
+The [Basic web3 app](https://truflation.github.io/sample-frontend/)
+contains simple code that will allow you to query a smart contract
+that provides the current year-on-year truflation index.
 
-### Ethereum Rinkeby Testnet (Chain ID: 4)
+A set of [power
+tools](https://truflation.github.io/sample-frontend/power-tools.html) is
+available which will allowing you to send data via the truflation API.
 
-- Payment amount: 0.01 LINK
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
-- LINK token address: 0x01BE23585060835E02B77ef475b0Cc51aA1e0709
-- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
-- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
+# Getting help
 
-## BNB Chain
+To get help on these applications please connect with the [Truflation discord developer chat](https://discord.com/channels/967280164071407666/968071680360587264)
 
-### BNB Chain Mainnet (Chain ID: 56)
-
-**Important**\
-**The LINK provided by the [BNB Chain Bridge](https://www.bnbchain.world/en/bridge) is not ERC-677 compatible, so cannot be used with Chainlink oracles. However, it can be [converted to the official LINK token on BNB Chain using Chainlink's PegSwap service](https://pegswap.chain.link/?_ga=2.171353062.756683581.1650345653-1161789045.1649048909). ([Reference](https://docs.chain.link/docs/link-token-contracts/#bnb-chain))**
-
-- Payment amount: 0.01 LINK
-- Oracle address: 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480
-- LINK token address: 0x404460c6a5ede2d891e8297795264fde62adbb75
-- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
-- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
-
-### BNB Chain Testnet (Chain ID: 97)
-
-- Payment amount: 0.01 LINK
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
-- LINK token address: 0x84b9b910527ad5c03a9ca831909e21e236ea7b06
-- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
-- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
-
-## Polygon
-
-### Polygon Mainnet (Chain ID: 137)
-
-**Important**\
-**The LINK provided by the [Polygon (Matic) Bridge](https://wallet.polygon.technology/bridge) is not ERC-677 compatible, so cannot be used with Chainlink oracles. However, it can be [converted to the official LINK token on Polygon (Matic) using Chainlink's PegSwap service](https://pegswap.chain.link/?_ga=2.130074441.756683581.1650345653-1161789045.1649048909). ([Reference](https://docs.chain.link/docs/link-token-contracts/#polygon-matic))**
-
-- Payment amount: 0.01 LINK
-- Oracle address: 0xA96474C1A08374EFd0F3C9BC7153FDA7A6c8d9e1
-- LINK token address: 0xb0897686c545045afc77cf20ec7a532e3120e0f1
-- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
-- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
-
-### Mumbai Testnet (Chain ID: 80001)
-
-- Payment amount: 0.01 LINK
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
-- LINK token address: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB
-- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
-- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
-
-## Other links
-
-Truflation Discord - https://discord.gg/5AMCBYxfW4
-Chainlink Hackathlon 2022 - https://discord.com/channels/945776468452069426/963854788230017106
