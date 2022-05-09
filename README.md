@@ -10,7 +10,11 @@ Remix - https://remix.ethereum.org/
 
 [Quick start](QuickStart.md)
 
-# Network Details
+# Network Details (Legacy API)
+
+These endpoints are for the Legacy API.  Any new development should use the new
+API.  Please contact developers on developer chat for the endpoints for the new
+API.
 
 ## Ethereum
 
