@@ -74,20 +74,6 @@ async function refreshInflation() {
   }
     }
 
- async function getMartianAleIndex() {
-    let oracleAddress = document.querySelector('#oracle\\:address')
-    oracleAddress = oracleAddress ? oracleAddress.value : undefined
-    doOracleRequest({
-      "address": oracleAddress,
-      "service": "stub1",
-      "keypath": "martianale",
-      "abi": "json",
-      "data": '{"range": [0, 100], "indexes": ["martianale"]}',
-    }, {
-      "output":  document.querySelector('#martianale\\:output'),
-      "status": document.querySelector('#martianale\\:status')
-    })
-    }
   </script>
 </head>
 <body>
@@ -95,9 +81,9 @@ async function refreshInflation() {
   <a href="https://discord.com/channels/967280164071407666/968071680360587264"
     target="_blank">Truflation
     developer chat</a><br/>
-  <a href="https://github.com/truflation/quickstart/blob/main/QuickStart.md"
+  <a href="https://github.com/truflation/sample-frontend/"
      target="_blank">
-    Instructions</a><br/>
+    Source code</a><br/>
 
   <a href="power-tools.html" target="_blank">Power tools</a>
   <p />
@@ -119,20 +105,6 @@ async function refreshInflation() {
   </section>
   <p />
 
-  <section id="stub-example">
-    <h3>Stub example</h3>
-    Oracle address:
-    <input type="text" size="50" id="oracle:address"
-	   value=""
-	   />
-    <button type="button" onClick="getMartianAleIndex()">
-      Martian ale index
-    </button>
-    <br />
-    <span id="martianale:output"></span><br />
-    <span id="martianale:status"></span>
-  </section>
-  <p />
   <section id="contract">
     <h3>Get balances</h3>
     Oracle Address:
