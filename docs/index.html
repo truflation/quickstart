@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <title>Truflation basic test app</title>
   <link rel="shortcut icon" href="./favicon.ico"/>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.3/web3.min.js"></script>
   <script src="./abi.js"></script>
@@ -30,7 +31,9 @@ async function getInflation () {
 }
 
 async function refreshInflation() {
-  try {
+    try {
+    const output = document.getElementById('inflation:output')
+    const account = getAccount()
     const address = document.getElementById('inflation:address').value
     const contract = new web3.eth.Contract(inflationAbi, address)
     console.log(contract)
@@ -45,11 +48,12 @@ async function refreshInflation() {
     const transfer = token_contract.methods.transfer(
       address, fee
     )
+    document.getElementById('inflation:output').innerHTML = "Transferring LINK ..."
     await transfer.send({
       from: getAccount(),
       to: address
     })
-    document.getElementById('inflation:output').innerHTML = "Refreshing ..."
+    document.getElementById('inflation:output').innerHTML = 'Refreshing ...'
     const request = contract.methods.requestInflationString()
     
     const txn = await request.send({
@@ -66,17 +70,42 @@ async function refreshInflation() {
           await contract.methods.inflationString().call()
       })
   } catch (err) {
-    document.getElementById('inflation:output').innerHTML = err
+    output.innerHTML = err
   }
-}
+    }
+
+ async function getMartianAleIndex() {
+    let oracleAddress = document.querySelector('#oracle\\:address')
+    oracleAddress = oracleAddress ? oracleAddress.value : undefined
+    doOracleRequest({
+      "address": oracleAddress,
+      "service": "stub1",
+      "keypath": "martianale",
+      "abi": "json",
+      "data": '{"range": [0, 100], "indexes": ["martianale"]}',
+    }, {
+      "output":  document.querySelector('#martianale\\:output'),
+      "status": document.querySelector('#martianale\\:status')
+    })
+    }
   </script>
 </head>
 <body>
-  <h1>Truflation test app</h1>
-  <button class="enableEthereumButton">Enable Ethereum</button><br />
+  <h1>Truflation basic test app</h1>
+  <a href="https://discord.com/channels/967280164071407666/968071680360587264"
+    target="_blank">Truflation
+    developer chat</a><br/>
+  <a href="https://github.com/truflation/quickstart/blob/main/QuickStart.md"
+     target="_blank">
+    Instructions</a><br/>
+
+  <a href="power-tools.html" target="_blank">Power tools</a>
+  <p />
+  <button class="enableEthereumButton">Connect wallet</button><br />
   Account: <span class="showAccount"></span><br />
   Chain: <span class="showChain"></span><br><br />
   <section id="contract">
+    <h3>Inflation data</h3>
     Contract Address:
     <input type="text" size="50" id="inflation:address"
 	   value=""
@@ -88,11 +117,25 @@ async function refreshInflation() {
     <br />
     <span id="inflation:output"></span><br />
   </section>
-  <br />
-  <br />
+  <p />
 
+  <section id="stub-example">
+    <h3>Stub example</h3>
+    Oracle address:
+    <input type="text" size="50" id="oracle:address"
+	   value=""
+	   />
+    <button type="button" onClick="getMartianAleIndex()">
+      Martian ale index
+    </button>
+    <br />
+    <span id="martianale:output"></span><br />
+    <span id="martianale:status"></span>
+  </section>
+  <p />
   <section id="contract">
-    Contract Address:
+    <h3>Get balances</h3>
+    Oracle Address:
     <input type="text" size="50" id="balance:address"
 	   value=""
 	   />
@@ -102,6 +145,5 @@ async function refreshInflation() {
     <span id="balance:output"></span>
   </section>
 
-  <a href="power-tools.html">Power tools</a> 
 </body>
 </html>

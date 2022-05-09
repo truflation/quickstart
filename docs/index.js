@@ -1,3 +1,4 @@
+var accounts
 window.addEventListener('load', function () {
   const ethereumButton = document.querySelector('.enableEthereumButton')
   const showAccount = document.querySelector('.showAccount')
@@ -30,6 +31,9 @@ window.addEventListener('load', function () {
 })
 
 function getAccount () {
+  if (accounts === undefined) {
+    throw new Error('No account available - Please connect to wallet')
+  }
   return accounts[0]
 }
 
@@ -78,36 +82,47 @@ function decode (data, web3, abi, multiplier) {
 }
 
 async function doOracleRequest (request, output) {
-  console.log(request)
-  const oracle = new web3.eth.Contract(
-    oracleAbi, request.address)
-  const linkToken = await oracle.methods.getChainlinkToken().call()
-  const tokenContract = new web3.eth.Contract(
-    erc20Abi, linkToken
-  )
-  const requestTxn = oracle.methods.doRequest(
-    request.service ? request.service : '',
-    request.data ? request.data : '',
-    request.keypath ? request.keypath : '',
-    request.abi ? request.abi : '',
-    request.multiplier ? request.multiplier : ''
-  )
-  const fee = await oracle.methods.fee().call()
-  const transfer = tokenContract.methods.transfer(
-    request.address, fee
-  )
-  await transfer.send({
-    from: accounts[0],
-    to: request.address
-  })
-  const txn = await requestTxn.send({
-    from: accounts[0],
-    to: request.address
-  })
-  const id = txn.events.ChainlinkRequested.returnValues.id
-  console.log(id)
-  output.status.innerHTML = id
   try {
+    console.log(request)
+    if (request === undefined) {
+      throw Error('no request')
+    }
+    console.log(request.address)
+    if (!web3.utils.isAddress(request.address)) {
+      throw Error('address not valid')
+    }
+    output.status.innerHTML = 'Running...'
+    const account = getAccount()
+    const oracle = new web3.eth.Contract(
+      oracleAbi, request.address)
+    const linkToken = await oracle.methods.getChainlinkToken().call()
+    const tokenContract = new web3.eth.Contract(
+      erc20Abi, linkToken
+    )
+    const requestTxn = oracle.methods.doRequest(
+      request.service ? request.service : '',
+      request.data ? request.data : '',
+      request.keypath ? request.keypath : '',
+      request.abi ? request.abi : '',
+      request.multiplier ? request.multiplier : ''
+    )
+    output.status.innerHTML = 'Transferring LINK...'
+    const fee = await oracle.methods.fee().call()
+    const transfer = tokenContract.methods.transfer(
+      request.address, fee
+    )
+    await transfer.send({
+      from: account,
+      to: request.address
+    })
+    const txn = await requestTxn.send({
+      from: account,
+      to: request.address
+    })
+    const id = txn.events.ChainlinkRequested.returnValues.id
+    console.log(id)
+    output.status.innerHTML = 'Waiting for response request id: ' + id
+
     oracle.events.ChainlinkFulfilled(
       {
         filter: { id }
@@ -120,9 +135,14 @@ async function doOracleRequest (request, output) {
         )
         output.output.innerHTML =
           JSON.stringify(obj)
+        output.status.innerHTML = ''
       })
   } catch (err) {
-    output.status.innerHTML = JSON.stringify(err)
+    let string = err.toString()
+    if (string === "[object Object]") {
+      string = JSON.stringify(err)
+    }
+    output.status.innerHTML = string
     output.output.innerHTML = ''
   }
 }

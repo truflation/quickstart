@@ -2,25 +2,12 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <title>Truflation power tools</title>
   <link rel="shortcut icon" href="./favicon.ico"/>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.3/web3.min.js"></script>
   <script src="./abi.js"></script>
   <script src="./index.js"></script>
   <script type="text/javascript">
-    function getMartianAleIndex() {
-      let oracleAddress = document.querySelector('#oracle\\:address')
-      doOracleRequest({
-        "address": oracleAddress ? oracleAddress.value : "",
-        "service": "stub1",
-        "keypath": "martianale",
-        "abi": "json",
-        "data": '{"range": [0, 100], "indexes": ["martianale"]}',
-      }, {
-        "output":  document.querySelector('#martianale\\:output'),
-        "status": document.querySelector('#martianale\\:status')
-      })
-
-    }
     function runOracle() {
       let oracleAddress = document.querySelector('#oracle\\:address')
       let oracleService = document.querySelector('#oracle\\:service')
@@ -68,22 +55,20 @@
 </head>
 <body>
   <h1>Truflation power tools</h1>
-  <button class="enableEthereumButton">Enable Ethereum</button><br />
+  <a href="https://github.com/truflation/quickstart/blob/main/QuickStart.md"
+     target="_blank">
+    Instructions</a><br/>
+  <a href="https://discord.com/channels/967280164071407666/968071680360587264"
+     target="_blank">Truflation
+    developer chat</a><br/>
+  <p />
+  <button class="enableEthereumButton">Connect wallet</button><br />
   Account: <span class="showAccount"></span><br />
   Chain: <span class="showChain"></span><br><br />
   Oracle address:
   <input type="text" size="50" id="oracle:address"
 	 value=""
 	 /><br />
-  <br />
-  <section id="stub-example">
-    <h3>Stub example</h3>
-    <button type="button" onClick="getMartianAleIndex()">
-      Martian ale index
-    </button>
-    <span id="martianale:output"></span><br />
-    <span id="martianale:status"></span>
-  </section>
   <br />
   <section id="api-tester">
     <h3>API Tester</h3>
@@ -102,9 +87,9 @@
     Multiplier: <input type="text" size="50" id="oracle:multiplier" /><br />
     Data:<br> <textarea id="oracle:data"></textarea><br />
     <button type="button" onClick="runOracle();">Run
-    Oracle</button><br />
-    <span id="oracle:status"></span><br />
-    <span id="oracle:output"></span>
+      Oracle</button><br />
+    <span id="oracle:output"></span><br />
+    <span id="oracle:status"></span>
   </section>
 
   <a href="power-tools.html">Power tools</a> 
