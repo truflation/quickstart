@@ -12,9 +12,9 @@ Please contact developer chat for endpoints for any networks not listed
 
 ### Ethereum Rinkeby Testnet (Chain ID: 4)
 
-- Payment amount: 0.01 LINK
+- Payment amount: 0.01 LINK = 10000000000000000
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
-- Job ID: 4ed456e523e04eacaf80dd60f739b3f3
+- Job ID: e5b99e0a2f79402998187b11f37c56a6
 
 # Links
 
