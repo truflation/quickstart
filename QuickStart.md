@@ -5,8 +5,7 @@ following one of the guides below, based on your use case.
 
 # Getting help
 
-To get help on these applications please connect with the [Truflation discord developer chat]
-(https://discord.com/channels/967280164071407666/968071680360587264)
+To get help on these applications please connect with the [Truflation discord developer chat](https://discord.com/channels/967280164071407666/968071680360587264)
 
 # Web3
 * [Basic web3 app](https://truflation.github.io/quickstart/)
