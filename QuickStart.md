@@ -9,6 +9,20 @@ To get help on these applications please connect with the [Truflation discord de
 (https://discord.com/channels/967280164071407666/968071680360587264)
 
 # Web3
+* [Basic web3 app](https://truflation.github.io/quickstart/)
+* [Power tools](https://truflation.github.io/quickstart/power-tools.html)
+
+The basic web3 app contains simple code that will allow you to query a
+smart contract that provides the current year-on-year truflation
+index.
+
+The basic web3 app also contains a simple app that accesses the stub
+feature of the truflation system.  This allows developers to code
+against a future index that has not yet been implemented.
+
+A set of [power
+tools](https://truflation.github.io/quickstart/power-tools.html) is
+available which will allowing you to send data via the truflation API.
 
 The source code for web3 applications is available in the [docs
 directory](https://github.com/truflation/quickstart/tree/main/docs)
@@ -20,19 +34,7 @@ network](https://gist.github.com/tschubotz/8047d13a2d2ac8b2a9faa3a74970c7ef).
 You should also send LINK to your wallet via [the chainlink
 wallet](https://faucets.chain.link/).
 
-A basic web3 app that illustrates how to use truflation contracts is
-available on [github pages](https://truflation.github.io/quickstart/)
-This web3 app contains simple code that will allow you to query a
-smart contract that provides the current year-on-year truflation
-index.
 
-The basic web3 app also contains a simple app that accesses the stub
-feature of the truflation system.  This allows developers to code
-against a future index that has not yet been implemented.
-
-A set of [power
-tools](https://truflation.github.io/quickstart/power-tools.html) is
-available which will allowing you to send data via the truflation API.
 
 # Smart contracts
 
