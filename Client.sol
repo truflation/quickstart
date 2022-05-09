@@ -8,32 +8,36 @@ contract MyClient is ChainlinkClient, ConfirmedOwner {
     bytes public result;
     mapping(bytes32 => bytes) public results;
     address public oracleId;
-    bytes32 public jobId;
+    string public jobId;
     uint256 public fee;
 
     constructor(address oracleId_, string memory jobId_,
                 uint256 fee_) ConfirmedOwner(msg.sender) {
         setPublicChainlinkToken();
         oracleId = oracleId_;
-        jobId = bytes32(bytes(jobId_));
+        jobId = jobId_;
         fee = fee_;
     }
 
     function doRequest(
-        string memory service,
-        string memory data,
-        string memory keypath,
-	string memory abi_) public returns (bytes32 requestId) {
-        Chainlink.Request memory req = buildChainlinkRequest(jobId, 
+        string memory service_,
+        string memory data_,
+        string memory keypath_,
+        string memory abi_,
+        string memory multiplier_) public returns (bytes32 requestId) {
+          Chainlink.Request memory req = buildChainlinkRequest(
+            bytes32(bytes(jobId)),
             address(this), this.fulfillBytes.selector);
-        req.add("service", service);
-	    req.add("data", data);
-        req.add("keypath", keypath);
-	req.add("abi", abi_);
+        req.add("service", service_);
+        req.add("data", data_);
+        req.add("keypath", keypath_);
+        req.add("abi", abi_);
+        req.add("multiplier", multiplier_);
         return sendChainlinkRequestTo(oracleId, req, fee);
     }
 
-    function fulfillBytes(bytes32 _requestId, bytes memory bytesData) public recordChainlinkFulfillment(_requestId) {
+    function fulfillBytes(bytes32 _requestId, bytes memory bytesData)
+        public recordChainlinkFulfillment(_requestId) {
         result = bytesData;
 	results[_requestId] = bytesData;
     }
@@ -43,11 +47,11 @@ contract MyClient is ChainlinkClient, ConfirmedOwner {
     }
 
     function changeJobId(string memory _jobId) public onlyOwner {
-        jobId = bytes32(bytes(_jobId));
+        jobId = _jobId;
     }
 
     function getChainlinkToken() public view returns (address) {
-    return chainlinkTokenAddress();
+        return chainlinkTokenAddress();
     }
 
     function withdrawLink() public onlyOwner {
