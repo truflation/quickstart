@@ -1,0 +1,9 @@
+{
+  "license": "MIT",
+  "scripts": {
+    "serve": "static-server . --port 9011"
+  },
+  "dependencies": {
+    "static-server": "^2.2.1"
+  }
+}
