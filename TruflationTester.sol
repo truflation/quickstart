@@ -15,20 +15,8 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
   string public jobId;
   uint256 public fee;
 
-  // Please refer to README and find corresponding chain's information
-  
-  // Ethereum mainnet
-  // oracle = 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A;
-  // jobId = "b04c2a85143c43089c1befe7c41dea93";
-  
-  // BNB Smart Chain Mainnet
-  // oracle = 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480;
-  // jobId = "b04c2a85143c43089c1befe7c41dea93";
-  
-  // Ethereum Rinkeby Testnet (Chain ID: 4)
-  // oracle = 0x17dED59fCd940F0a40462D52AAcD11493C6D8073;
-  // jobId = "b04c2a85143c43089c1befe7c41dea93";
-  // fee = 10**16
+  // Please refer to https://github.com/truflation/quickstart
+  // for oracle address. job id, and fee for a given network
 
   constructor(
     address oracleId_,

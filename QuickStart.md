@@ -34,13 +34,17 @@ network](https://gist.github.com/tschubotz/8047d13a2d2ac8b2a9faa3a74970c7ef).
 You should also send LINK to your wallet via [the chainlink
 wallet](https://faucets.chain.link/).
 
-
+The demonstration smart contracts provide a simple interface to
+retrieve current US CPI data.  Please contact truflation for
+additional data which we have available on the blockchain.
 
 # Smart contracts
 
 These contracts are for development and testing use only.  Do not use them in production systems!!!!
 
-## 1. Testing with existing smart contract
+Please see the [TODO](TODO.md) list for project ideas.
+
+## 1. Testing with truflationTester
 
 An existing smart contract is available for testing purposes on [Rinkeby testnet](https://rinkeby.etherscan.io/address/0x79053120810FdDf61ceFB781fc898D1cf52A44a0). This contract fetches inflation data from Truflation's Rinkeby Chainlink node and stores the last result that it fetched.
 
@@ -54,7 +58,7 @@ To query the contract
 4. wait for the node to respond
 
 
-## 2. Deploying your own smart contract
+## 2. Deploying the truflation tester
 
 1. Get some LINK from [ChainLink's faucet](https://faucets.chain.link/) (make sure to choose "Ethereum Rinkeby")
 2. [Open Truflation in Remix IDE](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/TruflationTester.sol)
@@ -69,3 +73,18 @@ To query the contract
 11. send some Rinkeby (or relevant network) LINK directly to your smart contract's address via Metamask or other wallet (0.01 LINK per call)
 12. press the orange `requestInflationDataString` or `requestInflationDataWei` button to fetch inflation data from Chainlink and store the result in your contract
 13. when confirmed, press the blue `inflationString` button to see the result
+
+## 3. Advanced API Client contract 1. Advanced users may wish to look
+at the [API Client
+Contract](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/Client.sol)
+or the [API Operator
+Contract](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/Operator.sol). These
+contracts can be used to access addition data.
+
+# Chainlink config / adapter
+
+The config and adapters used to implement the API is available on the
+quickstart repository under the dev directory.  Please feel free to
+use these adapters and chainlink configs, and let us know in developer
+chat if you need help in using these configs.
+
