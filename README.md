@@ -4,13 +4,23 @@ For help on quickstart - Look at the Laguna Labs Developer Chat
 
 https://discord.com/channels/967280164071407666/968071680360587264
 
-Truflation page - https://market.link/data-providers/6c1aa26b-ec72-4753-b40e-3f43d3538108/integrations
-
-Remix - https://remix.ethereum.org/
-
 [Quick start](QuickStart.md)
 
-# Network Details (Legacy API)
+# Network Details - New API
+
+Please contact developer chat for endpoints for any networks not listed
+
+### Ethereum Rinkeby Testnet (Chain ID: 4)
+
+- Payment amount: 0.01 LINK
+- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+- Job ID: 4ed456e523e04eacaf80dd60f739b3f3
+
+# Links
+
+Truflation page - https://market.link/data-providers/6c1aa26b-ec72-4753-b40e-3f43d3538108/integrations
+
+# Legacy API
 
 These endpoints are for the Legacy API.  Any new development should use the new
 API.  Please contact developers on developer chat for the endpoints for the new
