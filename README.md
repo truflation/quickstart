@@ -43,19 +43,12 @@ To query the contract
 12. press the orange `requestInflationDataString` or `requestInflationDataWei` button to fetch inflation data from Chainlink and store the result in your contract
 13. when confirmed, press the blue `inflationString` button to see the result
 
-# Web3 frontend
+# Sample web3 frontend
 
 A sample web3 frontend using truflation data is available in the [sample-frontend repo](https://github.com/truflation/sample-frontend).
 
-The [Basic web3 app](https://truflation.github.io/sample-frontend/)
-contains simple code that will allow you to query a smart contract
-that provides the current year-on-year truflation index.
+# Links
 
-A set of [power
-tools](https://truflation.github.io/sample-frontend/power-tools.html) is
-available which will allowing you to send data via the truflation API.
-
-# Getting help
-
-To get help on these applications please connect with the [Truflation discord developer chat](https://discord.com/channels/967280164071407666/968071680360587264)
+* [Truflation discord developer chat](https://discord.com/channels/967280164071407666/968071680360587264)
+* [Network endpoints](network.md)
 
