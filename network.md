@@ -6,15 +6,15 @@ https://discord.com/channels/967280164071407666/968071680360587264
 
 [Quick start](QuickStart.md)
 
-# Network Details - New API
+# Network Details - API-202205
 
-Please contact developer chat for endpoints for any networks not listed
+Please contact developer chat for endpoints for additional networks
 
 ### Ethereum Rinkeby Testnet (Chain ID: 4)
 
-- Payment amount: 0.01 LINK = 10000000000000000
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
 - Job ID: e5b99e0a2f79402998187b11f37c56a6
+- Payment amount: 0.01 LINK = 10000000000000000
 
 # Links
 
