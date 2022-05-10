@@ -54,6 +54,10 @@ this file to the verify and publish contracts feature of etherscan.
 A sample web3 frontend using truflation data is available in the
 [sample-frontend repo](https://github.com/truflation/sample-frontend).
 
+# Chainnode
+
+Adapters and node toml files to implement the API are available on github
+
 # Help and links
 
 * [Truflation discord developer chat](https://discord.com/channels/967280164071407666/968071680360587264)
