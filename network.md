@@ -6,7 +6,7 @@ https://discord.com/channels/967280164071407666/968071680360587264
 
 [Quick start](QuickStart.md)
 
-# Network Details - API-202205
+# Network Details - API (May 2022)
 
 Please contact developer chat for endpoints for additional networks
 
