@@ -46,6 +46,9 @@ If you need the result as a uint256 wei value, please uncomment the
 parts of the smart contract that convert the response of the
 truflation server into a integer.
 
+If you wish to have your contract runnable via ethereum use [solt](https://github.com/hjubb/solt) to generate a json file and upload
+this file to the verify and publish contracts feature of eitherscan.
+
 # Sample web3 frontend
 
 A sample web3 frontend using truflation data is available in the
