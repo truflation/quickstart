@@ -62,4 +62,4 @@ Adapters and node toml files to implement the API are available on github
 
 * [Truflation discord developer chat](https://discord.com/channels/967280164071407666/968071680360587264)
 * [Network endpoints](network.md)
-
+* [Using solt to get a contract on etherscan](https://blog.jubb.xyz/post/solt-release/)
