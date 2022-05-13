@@ -22,8 +22,8 @@ Truflation page - https://market.link/data-providers/6c1aa26b-ec72-4753-b40e-3f4
 
 # Legacy API
 
-These endpoints are for the Legacy API.  Any new development should use the new
-API.  Please contact developers on developer chat for the endpoints for the new
+These endpoints are for the Legacy API. Any new development should use the new
+API. Please contact developers on developer chat for the endpoints for the new
 API.
 
 ## Ethereum
@@ -83,6 +83,24 @@ API.
 - Payment amount: 0.01 LINK
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
 - LINK token address: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB
+- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
+- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
+
+## Avalanche
+
+### Avalanche Mainnet (Chain ID: 43114)
+
+- Payment amount: 0.01 LINK
+- Oracle address: 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
+- LINK token address: 0x5947BB275c521040051D82396192181b413227A3
+- Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
+- Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
+
+### Fuji (Avalanche) Testnet (Chain ID: 43113)
+
+- Payment amount: 0.01 LINK
+- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+- LINK token address: 0x0b9d5D9136855f6FEc3c0993feE6E9CE8a297846
 - Job ID(Truflation): b04c2a85143c43089c1befe7c41dea93
 - Job ID(NFT Index): eb4f0d822a4c481ca88e5a3ab2fec562
 
