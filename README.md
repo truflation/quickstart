@@ -36,7 +36,7 @@ To query the contract
 7. press "deploy" and sign with Metamask, wait for the transaction to be confirmed
 8. when confirmed, your deployed contract will be visible in "deployed contracts" below the "deploy" button that you just pressed
 9. press the "copy" icon to the right of your contract name (shown as something like "TRUFLATIONTESTER AT 0x000..0000 (BLOCKCHAIN)") to get your contract's address
-10. send some Rinkeby (or relevant network) LINK directly to your smart contract's address via Metamask or other wallet (0.01 LINK per call - ** if you do have a transaction revert issue this means that you did not send the LINK **
+10. send some Rinkeby (or relevant network) LINK directly to your smart contract's address via Metamask or other wallet (0.01 LINK per call - ** if you have a transaction revert issue this means that you did not send the LINK **
 11. Click on the down arrow to open up the interface to the deployed contracts
 12. press the orange `requestYoYInflation` button to fetch inflation data from Chainlink and store the result in your contract
 13. when confirmed, press the blue `yoyInflation` button to see the result
