@@ -9,7 +9,6 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
   using Chainlink for Chainlink.Request;
   
   string public yoyInflation;
-  using Chainlink for Chainlink.Request;
   address public oracleId;
   string public jobId;
   uint256 public fee;
