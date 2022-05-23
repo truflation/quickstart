@@ -71,7 +71,10 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
   // This is useful in situations where you want to do numerical
   // processing of values within the smart contract
 
-  uint256 public inflationWei;
+  // This will require a int256 rather than a uint256 as inflation
+  // can be negative
+
+  int256 public inflationWei;
   function requestInflationWei() public returns (bytes32 requestId) {
     Chainlink.Request memory req = buildChainlinkRequest(
       bytes32(bytes(jobId)),
@@ -80,7 +83,7 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     );
     req.add("service", "truflation/current");
     req.add("keypath", "yearOverYearInflation");
-    req.add("abi", "uint256");
+    req.add("abi", "int256");
     req.add("multiplier", "1000000000000000000");
     return sendChainlinkRequestTo(oracleId, req, fee);
   }
@@ -89,11 +92,11 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     bytes32 _requestId,
     bytes memory _inflation
   ) public recordChainlinkFulfillment(_requestId) {
-    inflationWei = toUint256(_inflation);
+    inflationWei = toInt256(_inflation);
   }
 
-  function toUint256(bytes memory _bytes) internal pure
-  returns (uint256 value) {
+  function toInt256(bytes memory _bytes) internal pure
+  returns (int256 value) {
     assembly {
       value := mload(add(_bytes, 0x20))
     }
