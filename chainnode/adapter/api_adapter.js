@@ -4,16 +4,16 @@
 // This is a simple chainlab adapter that processes incoming json
 // packages and outputs json.
 
-/* eslint n/no-callback-literal: 0 */
-
 const express = require('express')
 const bodyParser = require('body-parser')
 const { Requester } = require('@chainlink/external-adapter')
 const Web3EthAbi = require('web3-eth-abi')
 const JSONKeyPath = require('json-keypath')
 const cbor = require('cbor')
+const { create } = require('ipfs-http-client')
+const client = create('https://ipfs.infura.io:5001/api/v0')
 
-function extractData (data, header) {
+async function extractData (data, header) {
   const keypath = header.keypath
   const multiplier = header.multiplier
   let abi = header.abi
@@ -39,16 +39,32 @@ function extractData (data, header) {
   if (abi === undefined || abi === '') {
     abi = 'json'
   }
-  if (abi === 'cbor') {
+  if (abi === 'ipfs' || abi === 'ipfs/json') {
+    const r = await client.add(JSON.stringify(data))
+    data = r.path
+    json = false
+  } else if (abi === 'ipfs/cbor') {
+    const r = await client.add(cbor.encode(data))
+    data = r.path
+    json = false
+  } else if (abi === 'cbor') {
     data = cbor.encode(data)
     json = false
   } else if (abi !== 'json') {
     data = Web3EthAbi.encodeParameter(abi, data)
     json = false
   }
-
   console.log(data, json)
   return [data, json]
+}
+
+function serialize(obj) {
+  let str = [];
+  for (var p in obj)
+    if (p in obj) {
+      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+    }
+  return str.join("&");
 }
 
 class ApiAdapter {
@@ -61,15 +77,15 @@ class ApiAdapter {
     })
   }
 
-  process (req, res) {
+  async process (req, res) {
     console.log('POST Data: ', req.body)
-    const service = req.body.service
+    const service = req.body?.service
     if (service === undefined) {
-      res.status(500).send('No service')
+      res.status(200).json({'error': 'No service'})
       return
     }
 
-    if (this.services.func[service] !== undefined) {
+    if (this?.services?.func[service] !== undefined) {
       this.services.func[service](req, res)
       return
     }
@@ -77,27 +93,33 @@ class ApiAdapter {
     this.createRequest(req.body, (status, result) => {
       console.log('Result: ', result[0])
       console.log(typeof result[0])
-      if (result[1]) {
-        res.status(status).json(result[0])
-      } else {
-        res.status(status).write(result[0])
-        res.end(undefined, 'binary')
+      try {
+        if (result[1]) {
+          res.status(status).json(result[0])
+        } else {
+          res.status(status).write(result[0])
+          res.end(undefined, 'binary')
+        }
+      } catch (err) {
+        res.status(200).send(err)
       }
     })
   }
 
-  createRequest (input, callback) {
+  async createRequest (input, callback) {
     const service = input.service
-    let url = this.services.urlPost[service]
+    let url = this.services?.urlPost[service]
     let method = 'post'
     if (url === undefined) {
       method = 'get'
-      url = this.services.urlGet[service]
+      url = this.services?.urlGet[service]
     }
 
     if (url === undefined) {
+      callback(200, ["no service", false])
       return
     }
+
 
     let data = input.data
     if ((typeof data === 'string' ||
@@ -105,11 +127,18 @@ class ApiAdapter {
         data.replace(/\s/g, '').length) {
       data = JSON.parse(data)
     }
-
-    console.log('Url: ', url)
     if (data === undefined) {
       data = {}
     }
+
+    if (this.services?.urlEncodeData[service] === true) {
+      console.log('urlencode')
+      url = url + "?" + serialize(data)
+      console.log(url)
+      data = {}
+    }
+
+    console.log('Url: ', url)
     console.log('Data: ', data)
     Requester.request(
       {
@@ -119,15 +148,15 @@ class ApiAdapter {
         timeout: 300000
       }
     )
-      .then(response => {
-        const [retval, json] = extractData(
+      .then(async response => {
+        const [retval, json] = await extractData(
           response.data, input
         )
         console.log(retval)
         callback(response.status, [retval, json])
       })
       .catch(error => {
-        callback(500, Requester.errored(0, error))
+        callback(200, [Requester.errored(0, error), false])
       })
   }
 
@@ -136,13 +165,13 @@ class ApiAdapter {
   }
 }
 
-function echoFunc (req, res) {
+async function echoFunc (req, res) {
   console.log('POST Data: ', req.body)
   let data = req.body.data === undefined ? {} : req.body.data
   if (typeof data === 'string' || data instanceof String) {
     data = JSON.parse(data)
   }
-  const [retval, json] = extractData(
+  const [retval, json] = await extractData(
     data, req.body
   )
   if (json) {
@@ -153,7 +182,7 @@ function echoFunc (req, res) {
   }
 }
 
-function stub1Func (req, res) {
+async function stub1Func (req, res) {
   console.log('POST Data: ', req.body)
   let data = req.body.data === undefined ? {} : req.body.data
   if (typeof data === 'string' || data instanceof String) {
