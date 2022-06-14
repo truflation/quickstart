@@ -11,7 +11,8 @@ Please contact truflation for additional data which we have available
 on the blockchain.
 
 These contracts have not been audited and are should be used at your
-own risk.
+own risk.  ***Values that are available through testnets include a random
+fuzz and should be used for testing only.***
 
 ## 1. Testing with truflationTester
 
