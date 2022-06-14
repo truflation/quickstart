@@ -10,6 +10,8 @@ https://discord.com/channels/967280164071407666/968071680360587264
 
 Please contact developer chat for endpoints for additional networks
 
+***Values that are available through testnets include a random fuzz and should be used for testing only.***
+
 ### All networks
 - Job ID: e5b99e0a2f79402998187b11f37c56a6
 - Payment amount: 0.01 LINK = 10000000000000000
