@@ -2,7 +2,7 @@ This file allows API queries to get NFT Index information
 
 These can be tested via the [API Tester](https://truflation.github.io/sample-frontend/power-tools.html)
 
-A smart contract that executes uses the API is [available](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/sample-frontend/main/ApiClient.sol).
+The API can be called via a smart contract via the sample [APIClient](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/sample-frontend/main/ApiClient.sol).
 
 The call is controlled via a service call which can be either "list", "index", or "contracts".  In the absence of an explcit service call, "index" is assumed
 
