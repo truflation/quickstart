@@ -1,6 +1,6 @@
 # Quickstart
 
-Query [Truflation](http://www.truflation.com) inflation data by
+Query [Truflation](http://www.truflation.com) NFT and CPI data by
 following one of the guides below, based on your use case.
 
 # Smart contracts
@@ -54,6 +54,10 @@ this file to the verify and publish contracts feature of etherscan.
 
 A sample web3 frontend using truflation data is available in the
 [sample-frontend repo](https://github.com/truflation/sample-frontend).
+
+# NFT Data
+
+* [NFT Data Queries](nft-api.md)
 
 # Chainnode
 
