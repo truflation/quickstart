@@ -31,7 +31,7 @@ To get a list of contracts for an NFT index such as top11, the call is
 {"service": "contracts", "index": "nft/top11", "abi": "ipfs"}
 ```
 
-The index name for each index is as follows
+The index name for each category index is as follows
 
 | Index name | Index descriptions |
 | ------- | ---------- |
@@ -49,7 +49,7 @@ The index name for each index is as follows
 | music/collections/season1 | Music Collections - Season 1 |
 | music/collections/season2 | Music Collections - Season 2 |
 
-Also indexes are available for these individual nfts
+Also indexes are available for these collections of nfts
 | Index name | Description |
 |----------  | -------     |
 | nft/bayc | BAYC |
