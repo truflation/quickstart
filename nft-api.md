@@ -31,22 +31,28 @@ To get a list of contracts for an NFT index such as top11, the call is
 {"service": "contracts", "index": "nft/top11", "abi": "ipfs"}
 ```
 
-The list of supported categories are:
+The index name for each index is as follows
 
-* nft/top11
-* metaverse/land
-* utility/irl
-* utility/dao
-* utility/membership/discovered
-* utility/membership/selected
-* artwork/handdrawn
-* artwork/virtual
-* artwork/generative
-* music/generative
-* music/collections/genesis
-* music/collections/season1
-* music/collections/season2
+| Index name | Index descriptions |
+| ------- | ---------- |
+| nft/top11 | Top 11 |
+| metaverse/land | Metaverse Land |
+| utility/irl | Utility - IRL experiences | 
+| utility/dao | Utility - DAOs |
+| utility/membership/discovered | Utility - Membership (discovered) |
+| utility/membership/selected | Utility - Membership (selected) |
+| artwork/handdrawn | Artwork - Hand drawn |
+| artwork/generative | Artwork - Generative |
+| artwork/virtual | Artwork - Virtual |
+| music/generative | Music - Generative |
+| music/collections/genesis | Music Collections - Genesis |
+| music/collections/season1 | Music Collections - Season 1 |
+| music/collections/season2 | Music Collections - Season 2 |
 
 Also indexes are available for these individual nfts
-* nft/bayc
-* nft/ethlizards
+| Index name | Description |
+|----------  | -------     |
+| nft/bayc | BAYC |
+| nft/ethlizards | ETH Lizards |
+
+
