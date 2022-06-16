@@ -37,6 +37,7 @@ The index name for each category index is as follows
 | ------- | ---------- |
 | nft/top11 | Top 11 |
 | metaverse/land | Metaverse Land |
+| metaverse/assets | Metaverse Assets / Wearables |
 | utility/irl | Utility - IRL experiences | 
 | utility/dao | Utility - DAOs |
 | utility/membership/discovered | Utility - Membership (discovered) |
