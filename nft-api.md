@@ -21,13 +21,13 @@ To get the value of an index at a particular time
 To get a list of NFT indexes is available via the API call
 
 ```
-{"service": "list"} 
+{"service": "list", "abi": "ipfs"} 
 ```
 
 To get a list of contracts for an NFT index such as top11, the call is
 
 ```
-{"service": "contracts", "index": "nft/top11"}
+{"service": "contracts", "index": "nft/top11", "abi": "ipfs"}
 ```
 
 The list of supported indexes are:
