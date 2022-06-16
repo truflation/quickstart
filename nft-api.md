@@ -18,7 +18,8 @@ To get the value of an index at a particular time
 {"index": "nft/top11", "date": "2021-10-10"}
 ```
 
-To get a list of NFT indexes is available via the API call
+To get a list of NFT indexes is available via the API call.  The size of the response requires that
+the results be delivered via ipfs.
 
 ```
 {"service": "list", "abi": "ipfs"} 
