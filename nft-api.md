@@ -31,7 +31,7 @@ To get a list of contracts for an NFT index such as top11, the call is
 {"service": "contracts", "index": "nft/top11", "abi": "ipfs"}
 ```
 
-The list of supported indexes are:
+The list of supported categories are:
 
 * nft/top11
 * metaverse/land
@@ -46,3 +46,7 @@ The list of supported indexes are:
 * music/collections/genesis
 * music/collections/season1
 * music/collections/season2
+
+Also indexes are available for these individual nfts
+* nft/bayc
+* nft/ethlizards
