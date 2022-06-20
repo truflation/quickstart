@@ -24,9 +24,11 @@ Please contact developer chat for endpoints for additional networks
 
 ### BNB Chain Mainnet (Chain ID: 56)
 - Oracle address: 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480
+- LINK address: 0x404460C6A5EdE2D891e8297795264fDe62ADBB75
 
 ### BNB Chain Testnet (Chain ID: 97)
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+- LINK address: 0x84b9B910527Ad5C03A9Ca831909E21e236EA7b06
 
 ### Polygon Mainnet (Chain ID: 137)
 - Oracle address: 0xA96474C1A08374EFd0F3C9BC7153FDA7A6c8d9e1
