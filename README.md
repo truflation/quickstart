@@ -3,6 +3,9 @@
 Query [Truflation](http://www.truflation.com) NFT and CPI data by
 following one of the guides below, based on your use case.
 
+See our [Youtube demonstration](https://www.youtube.com/watch?v=lugCHOxKBPg) to see how to run
+through these tutorials.
+
 # Smart contracts
 
 The demonstration smart contracts provide a simple interface to
