@@ -33,7 +33,7 @@ Please contact developer chat for endpoints for additional networks
 - Oracle address: 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
 
 ## All testnet networks
-- Job ID: e5b99e0a2f79402998187b11f37c56a6
+- Job ID: 8b459447262a4ccf8863962e073576d9
 - Payment amount: 0.01 LINK = 10000000000000000
 
 ### BNB Chain Testnet (Chain ID: 97)
