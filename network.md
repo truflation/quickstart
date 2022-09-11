@@ -16,9 +16,6 @@ Please contact developer chat for endpoints for additional networks
 - Job ID: e5b99e0a2f79402998187b11f37c56a6
 - Payment amount: 0.01 LINK = 10000000000000000
 
-### Ethereum Rinkeby Testnet (Chain ID: 4)
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
-
 ### Ethereum Mainnet (Chain ID: 1)
 - Oracle address: 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
 
@@ -38,6 +35,9 @@ Please contact developer chat for endpoints for additional networks
 
 ### Goreli Testnet (Chain ID: 5)
  - Oracle address; 0xcf72083697aB8A45905870C387dC93f380f2557b
+
+### Ethereum Rinkeby Testnet (Chain ID: 4)
+- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
 
 ### BNB Chain Testnet (Chain ID: 97)
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
