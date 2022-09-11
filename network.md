@@ -6,7 +6,7 @@ https://discord.com/channels/967280164071407666/968071680360587264
 
 [Quick start](QuickStart.md)
 
-# Network Details - API (May 2022)
+# Network Details - API
 
 Please contact developer chat for endpoints for additional networks
 
@@ -35,6 +35,9 @@ Please contact developer chat for endpoints for additional networks
 ## All testnet networks
 - Job ID: 8b459447262a4ccf8863962e073576d9
 - Payment amount: 0.01 LINK = 10000000000000000
+
+### Goreli Testnet (Chain ID: 5)
+ - Oracle address; 0xcf72083697aB8A45905870C387dC93f380f2557b
 
 ### BNB Chain Testnet (Chain ID: 97)
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
