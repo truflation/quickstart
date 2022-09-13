@@ -29,15 +29,12 @@ Please contact developer chat for endpoints for additional networks
 ### Avalanche Mainnet (Chain ID: 43114)
 - Oracle address: 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
 
-## All testnet networks
+## Supported testnet networks
 - Job ID: 8b459447262a4ccf8863962e073576d9
 - Payment amount: 0.01 LINK = 10000000000000000
 
 ### Goreli Testnet (Chain ID: 5)
  - Oracle address; 0xcf72083697aB8A45905870C387dC93f380f2557b
-
-### Ethereum Rinkeby Testnet (Chain ID: 4)
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
 
 ### BNB Chain Testnet (Chain ID: 97)
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
@@ -47,6 +44,11 @@ Please contact developer chat for endpoints for additional networks
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
 
 ### Fuji (Avalanche) Testnet (Chain ID: 43113)
+- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+
+## Deprecated testnet networks
+
+### Ethereum Rinkeby Testnet (Chain ID: 4)
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
 
 # Links
