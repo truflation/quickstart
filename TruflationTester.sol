@@ -20,9 +20,10 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
   constructor(
     address oracleId_,
     string memory jobId_,
-    uint256 fee_
+    uint256 fee_,
+    address linkTokenAddress_
   ) ConfirmedOwner(msg.sender) {
-    setPublicChainlinkToken();
+    setChainlinkToken(linkTokenAddress_);
 
     // use this for Goerli (chain: 5)
     // setChainlinkToken(0x326C977E6efc84E512bB9C30f76E30c160eD06FB);
