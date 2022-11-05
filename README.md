@@ -36,7 +36,7 @@ To query the contract
 3. navigate to "Solidity Compiler" from the side menu and click on "Compile TruflationTester.sol"
 4. navigate to "deploy & run transactions" from the side menu, set the "environment" to "Injected Web3", and log into your Metamask if necessary.
 5. set the "contract" field to `TruflationTester`
-6. Insert the oracle id, job id, and fee (wei) from the list of [available networks](network.md).  The fee should be 1000000000000 (10*16 wei).
+6. Insert the oracle id, job id, and fee (wei) from the list of [available networks](network.md).  The fee should be 1000000000000 (10*16 wei). Fill in linkTokenAddress with the matching LINK token address from the list of [LINK token contracts](https://docs.chain.link/docs/link-token-contracts/)
 7. press "deploy" and sign with Metamask, wait for the transaction to be confirmed
 8. when confirmed, your deployed contract will be visible in "deployed contracts" below the "deploy" button that you just pressed
 9. press the "copy" icon to the right of your contract name (shown as something like "TRUFLATIONTESTER AT 0x000..0000 (BLOCKCHAIN)") to get your contract's address
