@@ -13,47 +13,43 @@ Please contact developer chat for endpoints for additional networks
 ***Values that are available through testnets include a random fuzz and should be used for testing only.***
 
 ## All mainnet networks
-- Job ID: e5b99e0a2f79402998187b11f37c56a6
-- Payment amount: 0.01 LINK = 10000000000000000
+- Job ID: a3fa982792ad486785be5d89ac333ab5
+- Payment amount: depends on the call but the standard amount is 0.5 LINK
 
 ### Ethereum Mainnet (Chain ID: 1)
-- Oracle address: 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
+- Oracle address: 0x7eDBB7EF41A6DE5F9B0E1746B345463f18642E14
 
 ### BNB Chain Mainnet (Chain ID: 56)
-- Oracle address: 0x02a1BE5682f4Fcc941746e95f095c356A7f4D480
+- Oracle address: 0xd7E42fa3E6766914A8F581f7a50Ca3c57dfDfE6d
 - LINK address: 0x404460C6A5EdE2D891e8297795264fDe62ADBB75
 
 ### Polygon Mainnet (Chain ID: 137)
 - Oracle address: 0xA96474C1A08374EFd0F3C9BC7153FDA7A6c8d9e1
 
 ### Avalanche Mainnet (Chain ID: 43114)
-- Oracle address: 0xfE2dD37BC29f5fc4E0cad8F58F4Dbf4AddD5A59A
+- Oracle address: 0x8EC4012535BEb30acc33950bf8a7981f9c801944
 
 ## Supported testnet networks
-- Job ID: 8b459447262a4ccf8863962e073576d9
-- Payment amount: 0.01 LINK = 10000000000000000
+- Job ID: d220e5e687884462909a03021385b7ae
+- Payment amount: Call dependent - but the standard amount of 0.5 LIMK
 
 ### Goreli Testnet (Chain ID: 5)
  - Oracle address; 0xcf72083697aB8A45905870C387dC93f380f2557b
 
 ### BNB Chain Testnet (Chain ID: 97)
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+- Oracle address: 0x6888BdA6a975eCbACc3ba69CA2c80d7d7da5A344
 - LINK address: 0x84b9B910527Ad5C03A9Ca831909E21e236EA7b06
 
 ### Mumbai Testnet (Chain ID: 80001)
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+- Oracle address: 0x6D141Cf6C43f7eABF94E288f5aa3f23357278499
 
 ### Fuji (Avalanche) Testnet (Chain ID: 43113)
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+- Oracle address: 0xa8b7fAc5E2676B8EAb049329C8B7210acE1f8b99
 
 ## Deprecated testnet networks
 
 ### Ethereum Rinkeby Testnet (Chain ID: 4)
 - Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
-
-# Links
-
-Truflation page - https://market.link/data-providers/6c1aa26b-ec72-4753-b40e-3f43d3538108/integrations
 
 ## Other links
 
