@@ -19,14 +19,7 @@ fuzz and should be used for testing only.***
 
 ## 1. Testing with truflationTester
 
-An existing smart contract is available for testing purposes on [Goerli testnet](https://goerli.etherscan.io/address/0x92733D7Da602A9A1415249F1729CBB732330d109). This contract fetches inflation data from Truflation's Goerli Chainlionk node and stores the last result that it fetched.
-
-To query the contract
-1. [Visit the "Read Contract" page on Goerli Etherscan](https://goerli.etherscan.io/address/0x92733D7Da602A9A1415249F1729CBB732330d109#readContract)
-2. Query the inflation value to see the last value fetched. click yoyInflation under ["Read Contract"](https://goerli.etherscan.io/address/0x92733D7Da602A9A1415249F1729CBB732330d109#readContract).
-3. To fetch a new value, navigate to ["Write Contract"](https://goerli.etherscan.io/address/0x92733D7Da602A9A1415249F1729CBB732330d109#writeContract) and call `requestYoyInflation`. The call will not be made successfully if the contract is out of Goerli LINK. You can send the link fee of 0.01 LINK directly to the smart contract. Goerli testnet LINK
-   can be acquired from [ChainLink faucet](https://faucets.chain.link/)
-4. wait for the node to respond and query yoyInflation under ["Read Contract"](https://goerli.etherscan.io/address/0x92733D7Da602A9A1415249F1729CBB732330d109#readContract).
+To test out the truflation API, go to [[http://marketplace.truflation.com/]]
 
 
 ## 2. Deploying the truflation tester
