@@ -42,6 +42,8 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     req.add("service", "truflation/current");
     req.add("keypath", "yearOverYearInflation");
     req.add("abi", "json");
+    req.add("refundTo",
+            Strings.toHexString(uint160(msg.sender), 20));
     return sendChainlinkRequestTo(oracleId, req, fee);
   }
 
