@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.17;
 
+import "@openzeppelin/contracts/utils/Strings.sol";
 import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 import "@chainlink/contracts/src/v0.8/ConfirmedOwner.sol";
 
@@ -43,7 +44,7 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     req.add("keypath", "yearOverYearInflation");
     req.add("abi", "json");
     req.add("refundTo",
-            Strings.toHexString(uint160(msg.sender), 20));
+      Strings.toHexString(uint160(msg.sender), 20));
     return sendChainlinkRequestTo(oracleId, req, fee);
   }
 
@@ -91,6 +92,9 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     req.add("keypath", "yearOverYearInflation");
     req.add("abi", "int256");
     req.add("multiplier", "1000000000000000000");
+    req.add("refundTo",
+      Strings.toHexString(uint160(msg.sender), 20));
+
     return sendChainlinkRequestTo(oracleId, req, fee);
   }
 
