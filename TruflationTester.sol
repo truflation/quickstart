@@ -60,7 +60,7 @@ contract TruflationTester is ChainlinkClient, ConfirmedOwner {
     jobId = _jobId;
   }
 
-  function changeFee(uint256 memory _fee) public onlyOwner {
+  function changeFee(uint256 _fee) public onlyOwner {
     fee = _fee;
   }
 
