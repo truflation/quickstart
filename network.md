@@ -24,7 +24,7 @@ Please contact developer chat for endpoints for additional networks
 - LINK address: 0x404460C6A5EdE2D891e8297795264fDe62ADBB75
 
 ### Polygon Mainnet (Chain ID: 137)
-- Oracle address: 0xA96474C1A08374EFd0F3C9BC7153FDA7A6c8d9e1
+- Oracle address: 0xd7E42fa3E6766914A8F581f7a50Ca3c57dfDfE6d
 
 ### Avalanche Mainnet (Chain ID: 43114)
 - Oracle address: 0x8EC4012535BEb30acc33950bf8a7981f9c801944
@@ -34,22 +34,17 @@ Please contact developer chat for endpoints for additional networks
 - Payment amount: Call dependent - but the standard amount of 0.5 LIMK
 
 ### Goreli Testnet (Chain ID: 5)
- - Oracle address; 0xcf72083697aB8A45905870C387dC93f380f2557b
+ - Oracle address; 0x6888BdA6a975eCbACc3ba69CA2c80d7d7da5A344
 
 ### BNB Chain Testnet (Chain ID: 97)
-- Oracle address: 0x6888BdA6a975eCbACc3ba69CA2c80d7d7da5A344
+- Oracle address: 0x758d864483c685Ad4484984DAcdD44c9c1F62274
 - LINK address: 0x84b9B910527Ad5C03A9Ca831909E21e236EA7b06
 
 ### Mumbai Testnet (Chain ID: 80001)
 - Oracle address: 0x6D141Cf6C43f7eABF94E288f5aa3f23357278499
 
 ### Fuji (Avalanche) Testnet (Chain ID: 43113)
-- Oracle address: 0xa8b7fAc5E2676B8EAb049329C8B7210acE1f8b99
-
-## Deprecated testnet networks
-
-### Ethereum Rinkeby Testnet (Chain ID: 4)
-- Oracle address: 0x17dED59fCd940F0a40462D52AAcD11493C6D8073
+- Oracle address: 0xF0ffC609da91d1931314BA5d17F1786db985D801
 
 ## Other links
 
