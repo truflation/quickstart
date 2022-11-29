@@ -34,13 +34,13 @@ To test out the truflation API, go to [[http://marketplace.truflation.com/]]
 For Goerli the parameters are:
 * oracleid: 0x6888BdA6a975eCbACc3ba69CA2c80d7d7da5A344
 * jobid: d220e5e687884462909a03021385b7ae
-* fee: 50000000000000
+* fee: 500000000000000000
 * token: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB
 
 For mainnet the parameters are:
 * oracled: 0x7eDBB7EF41A6DE5F9B0E1746B345463f18642E14
 * jobid: a3fa982792ad486785be5d89ac333ab5
-* fee: 50000000000000
+* fee: 500000000000000000
 * token: 0x514910771AF9Ca656af840dff83E8264EcF986CA
 
 7. press "deploy" and sign with Metamask, wait for the transaction to be confirmed
