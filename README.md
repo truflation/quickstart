@@ -32,7 +32,7 @@ To test out the truflation API, go to [[http://marketplace.truflation.com/]]
 6. Insert the oracle id, job id, and fee (wei) from the list of [available networks](network.md).  The fee should be 50000000000000 (5 * 10**17 wei).  Get a token address from the list of [chainlink tokens](https://docs.chain.link/resources/link-token-contracts).  
 
 For Goerli the parameters are:
-* oracleid: 0xcf72083697aB8A45905870C387dC93f380f2557b
+* oracleid: 0x6888BdA6a975eCbACc3ba69CA2c80d7d7da5A344
 * jobid: d220e5e687884462909a03021385b7ae
 * fee: 50000000000000
 * token: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB
