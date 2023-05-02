@@ -59,10 +59,6 @@ truflation server into a integer.
 If you wish to have your contract runnable via ethereum use [solt](https://github.com/hjubb/solt) to generate a json file and upload
 this file to the verify and publish contracts feature of etherscan.
 
-# Sample web3 frontend
-
-A sample web3 frontend using truflation data is available in the
-[sample-frontend repo](https://github.com/truflation/sample-frontend).
 
 # Commodities
 
@@ -84,9 +80,24 @@ where ids are available from [Commodities id list](data-ids.csv)
 
 * [NFT Data Queries](nft-api.md)
 
+# Advanced users
+
+Advanced users may want to use our hardhat development environnment at
+(http://github.com/truflationdev/tfi-marketplace/).  This environment
+contains additional contracts and frameworks for testing web3 
+infrastructure using our [Web3 api](http://github.com/truflationdev/tfi-api/).
+
+# Sample web3 frontend
+
+More data is available via [Truflation Marketplace](http://marketplace.truflation.com/)
+
+A sample web3 frontend using truflation data is available in the
+[sample-frontend repo](https://github.com/truflation/sample-frontend).
+
 # Chainnode
 
 Adapters and node toml files to implement the API are available on github
+
 
 # Help and links
 
