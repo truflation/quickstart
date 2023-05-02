@@ -1,0 +1,32 @@
+Commodity,TFI category,TFI sub-category,ID
+Crude oil WTI Futures,Energy,Crude Oil & Natural Gas,603
+Brent Crude Oil,Energy,,604
+Natural Gas Futures,Energy,Crude Oil & Natural Gas,605
+RBOB Gasoline Futures,Energy,Refined Products,606
+Heating Oil Futures,Energy,Refined Products,607
+US Corn Futures,Agriculture,Grains,608
+US Soybeans Futures,Agriculture,Grains,609
+US Soybean Meal Futures,Agriculture,Grains,610
+US Soybean Oil Futures,Agriculture,Grains,611
+US Wheat Futures,Agriculture,Grains,612
+Copper Futures,Metals,Industrial Metals,613
+Platinum Futures,Metals,Precious Metals,614
+Palladium Futures,Metals,Precious Metals,615
+Aluminum,Industrial metals,,616
+Zinc,Industrial metals,,617
+Nickel,Industrial metals,,618
+Lean Hogs Futures,Livestock & Meats,Livestock,619
+Live Cattle Futures,Livestock & Meats,Livestock,620
+Oat,N/A,,621
+Rough Rice Futures,Agriculture,Softs,622
+Feeder Cattle Futures,Livestock & Meats,Livestock,623
+US Cocoa Futures,Agriculture,Softs,624
+Lumber Futures,Agriculture,Softs,625
+Gold Futures,Metals,Precious Metals,601
+Gold Spot,Metals,Precious Metals,501
+Silver Futures,Metals,Precious Metals,602
+Silver Spot,Metals,Precious Metals,502
+US Coffee C Futures,Agriculture,Softs,626
+US Cotton #2 Futures,Agriculture,Softs,627
+US Sugar #11 Futures,Agriculture,Softs,628
+Orange Juice Futures,Agriculture,Softs,629
