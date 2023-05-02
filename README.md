@@ -64,6 +64,7 @@ this file to the verify and publish contracts feature of etherscan.
 A sample web3 frontend using truflation data is available in the
 [sample-frontend repo](https://github.com/truflation/sample-frontend).
 
+
 # NFT Data
 
 * [NFT Data Queries](nft-api.md)
