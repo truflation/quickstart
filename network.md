@@ -29,6 +29,9 @@ Please contact developer chat for endpoints for additional networks
 ### Avalanche Mainnet (Chain ID: 43114)
 - Oracle address: 0x8EC4012535BEb30acc33950bf8a7981f9c801944
 
+### Arbitrum Mainnet (Chain ID: 421613)
+- Oracle address: 0xF0ffC609da91d1931314BA5d17F1786db985D801
+
 ## Supported testnet networks
 - Job ID: d220e5e687884462909a03021385b7ae
 - Payment amount: Call dependent - but the standard amount of 0.5 LIMK
@@ -45,6 +48,9 @@ Please contact developer chat for endpoints for additional networks
 
 ### Fuji (Avalanche) Testnet (Chain ID: 43113)
 - Oracle address: 0xF0ffC609da91d1931314BA5d17F1786db985D801
+
+### Arbitrum Testnet (Chain ID: 42161)
+- Oracle address: 0x2118c39C092183F9140A339ADB2c3890644b00A2
 
 ## Other links
 
