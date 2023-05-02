@@ -82,10 +82,16 @@ where ids are available from [Commodities id list](data-ids.csv)
 
 # Advanced users
 
-Advanced users may want to use our hardhat development environnment at
-(http://github.com/truflationdev/tfi-marketplace/).  This environment
-contains additional contracts and frameworks for testing web3 
-infrastructure using our [Web3 api](http://github.com/truflationdev/tfi-api/).
+Advanced users may want to use our hardhat units tests in the test
+directory and the functions in TfiExample.sol.
+
+Additional code for our contracts is available in
+[tfi-marketplace](http://github.com.truflationdev/tfi-marketplace/)
+
+This environment
+contains additional contracts and frameworks for testing web3
+infrastructure using our [Web3
+api](http://github.com/truflationdev/tfi-api/).
 
 # Sample web3 frontend
 
@@ -101,6 +107,7 @@ Adapters and node toml files to implement the API are available on github
 
 # Help and links
 
+* [Advanced users](ADVANCED.md)
 * [Truflation discord developer chat](https://discord.com/channels/967280164071407666/968071680360587264)
 * [Network endpoints](network.md)
 * [Using solt to get a contract on etherscan](https://blog.jubb.xyz/post/solt-release/)
