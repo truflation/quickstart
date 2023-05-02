@@ -64,6 +64,21 @@ this file to the verify and publish contracts feature of etherscan.
 A sample web3 frontend using truflation data is available in the
 [sample-frontend repo](https://github.com/truflation/sample-frontend).
 
+# Commodities
+
+To use commodities data use the following parameters as examples
+
+```
+data: {"ids": 603}
+```
+
+or
+
+```
+data: {"ids": 603, "date": "2023-01-01"}
+```
+
+where ids are available from [Commodities id list](data-ids.csv)
 
 # NFT Data
 
