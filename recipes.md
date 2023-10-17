@@ -3,7 +3,7 @@ These are some recipes that you can use at https://marketplace.truflation.com/
 The preferred chain to use is Arbitrium and Arbritrum Testnet
 
 * Get flatcoin index in int256 format and wei
-
+```
 {
 "service": "truflation/ticker",
 "data": {"symbol" : "com.truflation.flatcoin.price"},
@@ -11,7 +11,7 @@ The preferred chain to use is Arbitrium and Arbritrum Testnet
 "abi": "int256",
 "multiplier": "1000000000000000000"
 }
-
+```
 * Symbols available are
 
 ** com.truflation.gold
