@@ -24,24 +24,24 @@ To test out the truflation API, go to [[http://marketplace.truflation.com/]]
 
 ## 2. Deploying the truflation tester
 
-1. Get some LINK from [ChainLink's faucet](https://faucets.chain.link/) (make sure to choose "Ethereum Goerli")
+1. Get some LINK from [ChainLink's faucet](https://faucets.chain.link/) (make sure to choose "Arbitrum Goerli")
 2. [Open Truflation in Remix IDE](https://remix.ethereum.org/#url=https://raw.githubusercontent.com/truflation/quickstart/main/TruflationTester.sol)
 3. navigate to "Solidity Compiler" from the side menu and click on "Compile TruflationTester.sol"
 4. navigate to "deploy & run transactions" from the side menu, set the "environment" to "Injected Web3", and log into your Metamask if necessary.
 5. set the "contract" field to `TruflationTester`
 6. Insert the oracle id, job id, and fee (wei) from the list of [available networks](network.md).  The fee should be 50000000000000 (5 * 10**17 wei).  Get a token address from the list of [chainlink tokens](https://docs.chain.link/resources/link-token-contracts).  
 
-For Goerli the parameters are:
-* oracleid: 0x6888BdA6a975eCbACc3ba69CA2c80d7d7da5A344
+For Arbitrum testnet  the parameters are:
+* oracleid: 0x2118c39C092183F9140A339ADB2c3890644b00A2
 * jobid: d220e5e687884462909a03021385b7ae
 * fee: 500000000000000000
-* token: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB
+* token: 0xf97f4df75117a78c1A5a0DBb814Af92458539FB4
 
-For mainnet the parameters are:
-* oracled: 0x7eDBB7EF41A6DE5F9B0E1746B345463f18642E14
+For Arbitrum mainnet the parameters are:
+* oracleid: 0xF0ffC609da91d1931314BA5d17F1786db985D801
 * jobid: a3fa982792ad486785be5d89ac333ab5
 * fee: 500000000000000000
-* token: 0x514910771AF9Ca656af840dff83E8264EcF986CA
+* token: 0xd14838A68E8AFBAdE5efb411d5871ea0011AFd28
 
 7. press "deploy" and sign with Metamask, wait for the transaction to be confirmed
 8. when confirmed, your deployed contract will be visible in "deployed contracts" below the "deploy" button that you just pressed
