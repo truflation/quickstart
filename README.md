@@ -59,6 +59,9 @@ truflation server into a integer.
 If you wish to have your contract runnable via ethereum use [solt](https://github.com/hjubb/solt) to generate a json file and upload
 this file to the verify and publish contracts feature of etherscan.
 
+# Recipes
+
+* [Recipes](recipes.md)
 
 # Commodities
 
