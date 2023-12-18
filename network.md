@@ -26,6 +26,9 @@ Please contact developer chat for endpoints for additional networks
 ### Polygon Mainnet (Chain ID: 137)
 - Oracle address: 0xd7E42fa3E6766914A8F581f7a50Ca3c57dfDfE6d
 
+### Base Mainnet: (Chain ID: 8453)
+- Oracle address: 0xf087d68c23c2dB2C7D4431075D611Bba85672a10
+
 ### Avalanche Mainnet (Chain ID: 43114)
 - Oracle address: 0x8EC4012535BEb30acc33950bf8a7981f9c801944
 
@@ -42,6 +45,9 @@ Please contact developer chat for endpoints for additional networks
 ### BNB Chain Testnet (Chain ID: 97)
 - Oracle address: 0x758d864483c685Ad4484984DAcdD44c9c1F62274
 - LINK address: 0x84b9B910527Ad5C03A9Ca831909E21e236EA7b06
+
+### Base Goerli (Chain ID: 84531)
+ - Oracle address: 0x6D141Cf6C43f7eABF94E288f5aa3f23357278499
 
 ### Mumbai Testnet (Chain ID: 80001)
 - Oracle address: 0x6D141Cf6C43f7eABF94E288f5aa3f23357278499
