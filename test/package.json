@@ -25,7 +25,7 @@
     "hardhat-gas-reporter": "^1.0.9",
     "solhint": "^3.3.7",
     "solidity-coverage": "^0.7.21",
-    "tfi-api": "git+https://github.com/truflationdev/tfi-api#34ba11b",
+    "tfi-api": "git+https://github.com/truflation/tfi-api#34ba11b",
     "ts-node": "^10.9.1",
     "typechain": "^8.1.1",
     "typescript": "*",
